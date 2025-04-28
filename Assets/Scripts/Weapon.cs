@@ -8,13 +8,15 @@ public class Weapon : MonoBehaviour
     private Bullet prefabBullet;
 
     [SerializeField] private Transform tip;
-    
-    private Bullet.Model _model;
-    
+    [SerializeField] private float power;
+    //TODO: add a Model serialized field
+
     [ContextMenu("Fire")]
     public void Fire()
     {
         var newBullet = Instantiate(prefabBullet, tip.position, tip.rotation);
-        newBullet.SetModel(_model);
+        newBullet.gameObject.SetActive(true);
+        newBullet.SetModel(new Bullet.Model(power));
+        newBullet.Fire();
     }
 }
