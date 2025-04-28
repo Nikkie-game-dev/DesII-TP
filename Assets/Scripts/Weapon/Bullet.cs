@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,6 +18,8 @@ public class Bullet : MonoBehaviour
         StartCoroutine(Discharge());
         StartCoroutine(SelfDestroy());
     }
+    
+    
     private IEnumerator Discharge()
     {
         yield return new WaitForFixedUpdate();
@@ -28,12 +29,17 @@ public class Bullet : MonoBehaviour
     private IEnumerator SelfDestroy()
     {
         yield return new WaitForSeconds(time);
+        
+        #if DEBUG
+        print("Self destroy");
+        #endif
+        
         Destroy(gameObject);
     }
     
     public struct Model
     { 
-        public float Force { get; private set; }
+        public float Force { get; }
 
         public Model(float force)
         {
