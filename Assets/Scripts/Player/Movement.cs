@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -11,41 +12,63 @@ namespace Player
         [SerializeField] private InputActionReference jump;
         [SerializeField] private InputActionReference run;
         [SerializeField] private InputActionReference crouch;
-        [SerializeField] private float movementSpeed;
-        [SerializeField] private float runSpeed;
-        [SerializeField] private float jumpForce;
         [SerializeField] private Rigidbody rb;
-        [SerializeField] private float maxVelocity;
-        
-        
-        private Vector2 _movement;
-        private float _speed;
-        private bool _onGround;
 
+
+        [FormerlySerializedAs("movementSpeed")] [SerializeField]
+        private float acceleration;
+
+        [FormerlySerializedAs("runSpeed")] [SerializeField]
+        private float runAccel;
+
+        [SerializeField] private float jumpForce;
+
+        [FormerlySerializedAs("maxVelocity")] [SerializeField]
+        private float maxSpeed;
+
+        [SerializeField] private float slideRate;
+
+
+        private Vector2 _movInput;
+        private Vector2 _horVelocity;
+        private float _accel;
+        private bool _onGround;
 
         private void OnEnable()
         {
-            _speed = movementSpeed;
-                
-            movement.action.started += ctx => _movement = ctx.ReadValue<Vector2>();
-            movement.action.performed += ctx => _movement = ctx.ReadValue<Vector2>();
-            movement.action.canceled += ctx => _movement = ctx.ReadValue<Vector2>();
+            _accel = acceleration;
+            movement.action.started += ctx => _movInput = ctx.ReadValue<Vector2>();
+            movement.action.performed += ctx => _movInput = ctx.ReadValue<Vector2>();
+            movement.action.canceled += ctx => StartCoroutine(Stop(ctx));
 
             jump.action.started += _ => StartCoroutine(Jump());
-            
-            run.action.started += _ => _speed = runSpeed;
-            run.action.canceled += _ => _speed = movementSpeed;
-            
 
+            run.action.started += _ => _accel = runAccel;
+            run.action.canceled += _ => _accel = acceleration;
+        }
+
+        private IEnumerator Stop(InputAction.CallbackContext ctx)
+        {
+            _movInput = ctx.ReadValue<Vector2>();
+
+            yield return new WaitForFixedUpdate();
+
+            if (_onGround)
+            {
+                rb.AddForce(
+                    new Vector3(_horVelocity.normalized.x, 0f, _horVelocity.normalized.y) *
+                    -(_horVelocity.magnitude - slideRate), ForceMode.Impulse);
+            }
         }
 
         private void FixedUpdate()
         {
+            _horVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             if (_onGround)
             {
-                if (rb.linearVelocity.magnitude <= maxVelocity)
+                if (_horVelocity.magnitude <= maxSpeed)
                 {
-                    rb.AddForce(new Vector3(_movement.x, 0f, _movement.y) * _speed, ForceMode.Force);
+                    rb.AddForce(new Vector3(_movInput.x, 0f, _movInput.y) * _accel, ForceMode.Force);
                 }
             }
         }
@@ -64,7 +87,7 @@ namespace Player
         private IEnumerator Jump()
         {
             if (!_onGround) yield break;
-            
+
             yield return new WaitForFixedUpdate();
             rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
         }
