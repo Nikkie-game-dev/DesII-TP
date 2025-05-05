@@ -1,54 +1,67 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class Bullet : MonoBehaviour
+namespace Weapon
 {
-    private Rigidbody _rb;
-    private Model _model;
-    [SerializeField] private float time;
+    [RequireComponent(typeof(Rigidbody))]
+    public class Bullet : MonoBehaviour
+    {
+        [HideInInspector]
+        public float force;
 
-    private void OnEnable()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-
-    public void Fire()
-    {
-        StartCoroutine(Discharge());
-        StartCoroutine(SelfDestroy());
-    }
-    
-    
-    private IEnumerator Discharge()
-    {
-        yield return new WaitForFixedUpdate();
-        _rb.AddForce(transform.forward * _model.Force, ForceMode.Impulse);
-    }
-
-    private IEnumerator SelfDestroy()
-    {
-        yield return new WaitForSeconds(time);
+        public float damage;
         
-        #if DEBUG
-        print("Self destroy");
-        #endif
-        
-        Destroy(gameObject);
-    }
-    
-    public struct Model
-    { 
-        public float Force { get; }
+        [SerializeField] private float selfDestroyTime;
+        [SerializeField] private float destroyTimeAfterCollision;
+        [SerializeField] private GameObject sparks;
+        private Rigidbody _rb;
+        private Coroutine _selfDestroy;
 
-        public Model(float force)
+        private void OnEnable()
         {
-            Force = force;
+            _rb = GetComponent<Rigidbody>();    
         }
-        
-    }
-    
-    public void SetModel(Model model) => _model = model;
 
+        public void Fire()
+        {
+            StartCoroutine(Discharge());
+            _selfDestroy = StartCoroutine(TimerDestroy(selfDestroyTime));
+        }
     
+    
+        private IEnumerator Discharge()
+        {
+            yield return new WaitForFixedUpdate();
+            _rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        }
+
+        private IEnumerator TimerDestroy(float time)
+        {
+            yield return new WaitForSeconds(time);
+        
+#if DEBUG
+            print("Self destroy");
+#endif
+        
+            Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (_selfDestroy != null)
+            {
+                StopCoroutine(_selfDestroy);
+            }
+            if((other.collider.CompareTag("Wall") || other.collider.CompareTag("Ground")) && _rb.linearVelocity.magnitude > 30f)
+            {
+                sparks.SetActive(true);
+                sparks.transform.position = transform.position;
+                sparks.transform.Rotate(other.GetContact(0).normal);
+                Debug.DrawRay(sparks.transform.position, other.GetContact(0).normal * 20, Color.red);
+                sparks.GetComponent<ParticleSystem>().Play();
+            }
+
+            StartCoroutine(TimerDestroy(destroyTimeAfterCollision));
+        }
+    }
 }

@@ -10,15 +10,32 @@ namespace Weapon
 
         [SerializeField] private Transform tip;
         [SerializeField] private float power;
-        //TODO: add a Model serialized field
+        [SerializeField] private float damage;
+        [SerializeField] private bool isHitScan;
 
-        [ContextMenu("Fire")]
         public void Fire()
         {
-            var newBullet = Instantiate(prefabBullet, tip.position, tip.rotation);
-            newBullet.gameObject.SetActive(true);
-            newBullet.SetModel(new Bullet.Model(power));
-            newBullet.Fire();
+            if(!isHitScan)
+            {
+                var newBullet = Instantiate(prefabBullet, tip.position, tip.rotation);
+                newBullet.gameObject.SetActive(true);
+                newBullet.force = power;
+                newBullet.Fire();
+            }
+            else
+            {
+                Debug.DrawRay(tip.position, tip.forward * 100, Color.red, 3);
+
+                if (Physics.Raycast(tip.position, tip.forward, out RaycastHit hit))
+                {
+                    var objective = hit.transform.gameObject.GetComponent<Enemy.Stats>();
+                    if (objective != null && objective.CompareTag("Enemy"))
+                    {
+                        objective.ReceiveDamage(damage);
+                    }
+                }
+                
+            }
         }
     }
 }

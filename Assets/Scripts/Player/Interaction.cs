@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +10,7 @@ namespace Player
 
         private void OnEnable()
         {
+            
             fire.action.started += _ => weapon.Fire();
         }
     }

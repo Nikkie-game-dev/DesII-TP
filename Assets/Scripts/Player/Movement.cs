@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,34 +17,77 @@ namespace Player
         [FormerlySerializedAs("movementSpeed")] [SerializeField]
         private float acceleration;
 
-        [FormerlySerializedAs("runSpeed")] [SerializeField]
-        private float runAccel;
 
+        [SerializeField] private float runSpeed;
         [SerializeField] private float jumpForce;
 
-        [FormerlySerializedAs("maxVelocity")] [SerializeField]
-        private float maxSpeed;
+        [FormerlySerializedAs("maxSpeed")] [FormerlySerializedAs("maxVelocity")] [SerializeField]
+        private float walkingSpeed;
 
         [SerializeField] private float slideRate;
 
 
         private Vector2 _movInput;
         private Vector2 _horVelocity;
-        private float _accel;
+        private float _speedLimit;
         private bool _onGround;
 
         private void OnEnable()
         {
-            _accel = acceleration;
+            _speedLimit = walkingSpeed;
+            
             movement.action.started += ctx => _movInput = ctx.ReadValue<Vector2>();
             movement.action.performed += ctx => _movInput = ctx.ReadValue<Vector2>();
             movement.action.canceled += ctx => StartCoroutine(Stop(ctx));
 
             jump.action.started += _ => StartCoroutine(Jump());
 
-            run.action.started += _ => _accel = runAccel;
-            run.action.canceled += _ => _accel = acceleration;
+            run.action.started += _ => _speedLimit = runSpeed;
+            run.action.canceled += _ => _speedLimit = walkingSpeed;
         }
+
+        private void FixedUpdate()
+        {
+            _horVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
+            
+            if (_onGround)
+            {
+                //todo: this is not what we should be using
+                var move = transform.forward * _movInput.y + transform.right * _movInput.x;
+                rb.AddForce(new Vector3(move.x, 0f, move.z) * acceleration, ForceMode.Force);
+                
+                if (_horVelocity.magnitude > _speedLimit)
+                {
+                    rb.linearVelocity = new Vector3(move.x, 0f, move.z) * _speedLimit;
+                }
+                //todo: this is wrong, it limits the times the direction can change, rather than the speed
+                //if (_horVelocity.magnitude <= _speedLimit)
+                //{
+                //    var move = transform.forward * _movInput.y + transform.right * _movInput.x;
+                //    rb.AddForce(new Vector3(move.x, 0f, move.z) * acceleration, ForceMode.Force);
+                //}
+            }
+            
+        }
+
+        // --------------------- Events ---------------
+        private void OnCollisionEnter(Collision other)
+        {
+            if(other.collider.CompareTag("Ground"))
+            {
+                _onGround = true;
+            }
+        }
+
+        private void OnCollisionExit(Collision other)
+        {
+            if(other.collider.CompareTag("Ground"))
+            {
+                _onGround = false;
+            }
+        }
+
+        // --------------------- Coroutines ---------------
 
         private IEnumerator Stop(InputAction.CallbackContext ctx)
         {
@@ -59,28 +101,6 @@ namespace Player
                     new Vector3(_horVelocity.normalized.x, 0f, _horVelocity.normalized.y) *
                     -(_horVelocity.magnitude - slideRate), ForceMode.Impulse);
             }
-        }
-
-        private void FixedUpdate()
-        {
-            _horVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
-            if (_onGround)
-            {
-                if (_horVelocity.magnitude <= maxSpeed)
-                {
-                    rb.AddForce(new Vector3(_movInput.x, 0f, _movInput.y) * _accel, ForceMode.Force);
-                }
-            }
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            _onGround = other.collider.CompareTag("Ground");
-        }
-
-        private void OnCollisionExit(Collision other)
-        {
-            _onGround = false;
         }
 
 

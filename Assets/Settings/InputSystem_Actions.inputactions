@@ -18,7 +18,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "6b444451-8a00-4d00-a97e-f47457f736a8",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -66,7 +66,7 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Crawl",
@@ -81,6 +81,15 @@
                     "name": "Hold_Breath",
                     "type": "Button",
                     "id": "288e92f7-892f-4513-b166-3ebb68e7208e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Scope",
+                    "type": "Button",
+                    "id": "c9b5fbda-c0f1-4842-8b5b-645134def8f7",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -382,6 +391,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hold_Breath",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8d0f73c-f643-4e17-80fe-7af8bbbcb0fa",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scope",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c688eef2-bd65-412f-bb1b-cf982c72c662",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scope",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
