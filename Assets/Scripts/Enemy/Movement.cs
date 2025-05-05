@@ -3,13 +3,11 @@ using UnityEngine;
 
 namespace Enemy
 {
-    public class Movement : MonoBehaviour
+    public class Movement : Entity
     {
         [SerializeField] private Transform[] targets;
-        [SerializeField] private Rigidbody rb;
         [SerializeField] private bool searchPlayer;
         [SerializeField] private bool isStatic;
-        [SerializeField] private float acceleration;
         [SerializeField] private float maxSpeed;
 
         private Vector3 _currentTarget;
@@ -30,23 +28,13 @@ namespace Enemy
             {
                 UpdateTarget(0);
             }
+
+            maxSpeed = SpeedLimit;
         }
 
         private void FixedUpdate()
         {
-            //todo: this is wrong, it limits the times the direction can change, rather than the speed
-            /*if(!isStatic && rb.linearVelocity.magnitude < maxSpeed)
-            {
-                rb.AddForce(_currentTarget * acceleration, ForceMode.Force);
-            }*/
-
-            //todo: this is not what we should be using
-            rb.AddForce(_currentTarget * acceleration, ForceMode.Force);
-
-            if (rb.linearVelocity.magnitude > maxSpeed)
-            {
-                rb.linearVelocity = _currentTarget * maxSpeed;
-            }
+            Move(_currentTarget);
         }
 
         private void OnTriggerEnter(Collider other)

@@ -1168,6 +1168,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.198
       objectReference: {fileID: 0}
+    - target: {fileID: 2401885959374794272, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401885959374794272, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: m_Constraints
+      value: 46
+      objectReference: {fileID: 0}
     - target: {fileID: 7131483358245264453, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_Name
       value: Weapon
@@ -1175,6 +1183,22 @@ PrefabInstance:
     - target: {fileID: 7131483358245264453, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567100201773324528, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: force
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567100201773324528, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: attachment
+      value: 
+      objectReference: {fileID: 873094124}
+    - target: {fileID: 7567100201773324528, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: angleLimit.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567100201773324528, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: angleLimit.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7616658959820244735, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1244,7 +1268,8 @@ PrefabInstance:
       propertyPath: prefabBullet
       value: 
       objectReference: {fileID: 1679584978626460804}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7567100201773324528, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7616658959820244735, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
@@ -2116,6 +2141,6 @@ SceneRoots:
   - {fileID: 310231509}
   - {fileID: 1022294893}
   - {fileID: 891545291}
+  - {fileID: 607698696}
   - {fileID: 1852423408881003046}
   - {fileID: 1086335389}
-  - {fileID: 607698696}
