@@ -26,11 +26,6 @@ public class Entity : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
-    }
-
     protected void Move(Vector3 move)
     {
         if (!onGround) return;

@@ -32,10 +32,14 @@ namespace Player
 
             run.action.started += _ => SpeedLimit = runSpeed;
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
+            
+            ServiceProvider.TryAddService("playerData", new []{this, Interaction });
+            //TODO separate the set up of enabledGet and enabledSet
         }
 
         private void FixedUpdate()
         {
+            HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             Move(transform.forward * _movInput.y + transform.right * _movInput.x);
         }
         

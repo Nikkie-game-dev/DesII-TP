@@ -29,11 +29,12 @@ namespace Enemy
                 UpdateTarget(0);
             }
 
-            maxSpeed = SpeedLimit;
+            SpeedLimit = maxSpeed;
         }
 
         private void FixedUpdate()
         {
+            HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             Move(_currentTarget);
         }
 
