@@ -33,8 +33,9 @@ namespace Player
             run.action.started += _ => SpeedLimit = runSpeed;
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
             
-            ServiceProvider.TryAddService("playerData", new []{this, Interaction });
-            //TODO separate the set up of enabledGet and enabledSet
+            ServiceProvider.TryAddService("playerData");
+            ServiceProvider.ChangeAccess("playerData", AccessType.Set, GetType());
+            ServiceProvider.ChangeAccess("playerData", AccessType.Get, typeof(Enemy.Movement));
         }
 
         private void FixedUpdate()

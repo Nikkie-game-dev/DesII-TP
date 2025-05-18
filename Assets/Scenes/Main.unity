@@ -614,12 +614,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c97c0bb5996a6a45804d61fddd38489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 850947775}
+  acceleration: 500
+  onGround: 0
   movement: {fileID: -1680190386980627800, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   jump: {fileID: -2099379676528639254, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   run: {fileID: -7471211009204490832, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   crouch: {fileID: 7040659881675835329, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
-  rb: {fileID: 850947775}
-  acceleration: 500
   runSpeed: 55
   jumpForce: 7.36
   walkingSpeed: 20
@@ -1168,6 +1169,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.198
       objectReference: {fileID: 0}
+    - target: {fileID: 2266952959880520860, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2401885959374794272, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -1176,9 +1181,17 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 46
       objectReference: {fileID: 0}
+    - target: {fileID: 6009430980291800419, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7131483358245264453, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131483358245264453, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7131483358245264453, guid: 6695e2dec10823d42ab5930162c42ec6, type: 3}
       propertyPath: m_IsActive
@@ -1745,7 +1758,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
@@ -1816,7 +1829,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
