@@ -78,7 +78,7 @@ internal class Service
 }
 
 /// <summary>
-/// It provides methods to access global services, where each service determine who can get and put data
+/// It provides methods to access global services, where each service determine who can get and put data. It can store any type of data.
 /// </summary>
 public static class ServiceProvider
 {
