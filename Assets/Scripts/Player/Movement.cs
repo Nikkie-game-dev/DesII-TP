@@ -18,8 +18,6 @@ namespace Player
         [FormerlySerializedAs("maxSpeed")] [FormerlySerializedAs("maxVelocity")] [SerializeField]
         private float walkingSpeed;
 
-        [SerializeField] private float slideRate;
-
 
         private Vector2 _movInput;
 
@@ -29,7 +27,11 @@ namespace Player
 
             movement.action.started += ctx => _movInput = ctx.ReadValue<Vector2>();
             movement.action.performed += ctx => _movInput = ctx.ReadValue<Vector2>();
-            movement.action.canceled += ctx => StartCoroutine(Stop(ctx));
+            movement.action.canceled += ctx =>
+            {
+                StartCoroutine(Stop());
+                _movInput = ctx.ReadValue<Vector2>();
+            };
 
             jump.action.started += _ => StartCoroutine(Jump());
 
@@ -37,6 +39,7 @@ namespace Player
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
 
             Service = new Service("playerData");
+
             ServiceProvider.TryAddService(Service);
             ServiceProvider.ChangeAccess(Service, AccessType.Set, GetType());
             ServiceProvider.ChangeAccess(Service, AccessType.Get, typeof(Enemy.Movement));
@@ -47,20 +50,6 @@ namespace Player
             HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             Move(transform.forward * _movInput.y + transform.right * _movInput.x);
             ServiceProvider.Put(Service, "position", GetType(), transform.position);
-        }
-
-        private IEnumerator Stop(InputAction.CallbackContext ctx)
-        {
-            _movInput = ctx.ReadValue<Vector2>();
-
-            yield return new WaitForFixedUpdate();
-
-            if (onGround)
-            {
-                rb.AddForce(
-                    new Vector3(HorVelocity.normalized.x, 0f, HorVelocity.normalized.y) *
-                    -(HorVelocity.magnitude - slideRate), ForceMode.Impulse);
-            }
         }
 
 

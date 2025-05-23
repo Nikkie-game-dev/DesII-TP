@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Enemy
@@ -37,7 +36,7 @@ namespace Enemy
             HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
             Move(_currentTarget);
         }
-
+        
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Flag"))
@@ -79,7 +78,6 @@ namespace Enemy
             }
             
             UpdateTarget(_index);
-            
         }
 
         private void UpdateTarget(int index)
