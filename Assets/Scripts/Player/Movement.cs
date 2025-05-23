@@ -27,10 +27,11 @@ namespace Player
 
             movement.action.started += ctx => _movInput = ctx.ReadValue<Vector2>();
             movement.action.performed += ctx => _movInput = ctx.ReadValue<Vector2>();
+            
             movement.action.canceled += ctx =>
             {
-                StartCoroutine(Stop());
                 _movInput = ctx.ReadValue<Vector2>();
+                StartCoroutine(Stop());
             };
 
             jump.action.started += _ => StartCoroutine(Jump());
