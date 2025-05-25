@@ -24,12 +24,12 @@ namespace Weapon
             }
             else
             {
-                Debug.DrawRay(tip.position, tip.forward * 100, Color.red, 3);
+                Debug.DrawRay(tip.position, tip.forward * power, Color.red, 3);
 
-                if (Physics.Raycast(tip.position, tip.forward, out RaycastHit hit))
+                if (Physics.Raycast(tip.position, tip.forward, out var hit))
                 {
                     var objective = hit.transform.gameObject.GetComponent<Enemy.Stats>();
-                    if (objective != null && objective.CompareTag("Enemy"))
+                    if (objective && objective.CompareTag("Enemy"))
                     {
                         objective.ReceiveDamage(damage);
                     }

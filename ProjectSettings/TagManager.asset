@@ -10,6 +10,7 @@ TagManager:
   - Flag
   - Bullet
   - Torso
+  - Weapon
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +13,8 @@ namespace Player
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
-        [SerializeField] private GameObject scope;
         [SerializeField] private GameObject main;
+        [CanBeNull] private GameObject _scope;
 
         private Vector2 _look;
         private float _sensitivity;
@@ -29,18 +30,21 @@ namespace Player
             look.action.performed += _ => _look = look.action.ReadValue<Vector2>();
             look.action.canceled += _ => _look = look.action.ReadValue<Vector2>();
             
-            scopeIn.action.started += _ =>
+            if(_scope)
             {
-                scope.SetActive(true);
-                main.SetActive(false);
-                _sensitivity = aimSensitivity;
-            };
-            scopeIn.action.canceled += _ =>
-            {
-                scope.SetActive(false);
-                main.SetActive(true);
-                _sensitivity = sensitivity;
-            };
+                scopeIn.action.started += _ =>
+                {
+                    _scope.SetActive(true);
+                    main.SetActive(false);
+                    _sensitivity = aimSensitivity;
+                };
+                scopeIn.action.canceled += _ =>
+                {
+                    _scope.SetActive(false);
+                    main.SetActive(true);
+                    _sensitivity = sensitivity;
+                };
+            }
         }
 
         private void FixedUpdate()
@@ -63,6 +67,26 @@ namespace Player
                 head.transform.Rotate(Vector3.right, -addedAngle.y);
             }
             
+        }
+
+        public void SetScope([NotNull] GameObject scope)
+        {
+            if(!scope) return;
+            
+            _scope = scope;
+
+            scopeIn.action.started += _ =>
+            {
+                _scope.SetActive(true);
+                main.SetActive(false);
+                _sensitivity = aimSensitivity;
+            };
+            scopeIn.action.canceled += _ =>
+            {
+                _scope.SetActive(false);
+                main.SetActive(true);
+                _sensitivity = sensitivity;
+            };
         }
     }
 }

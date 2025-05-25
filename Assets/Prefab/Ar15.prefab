@@ -369,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 919132149155446097}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.27, y: 0.816, z: -0.54}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24119894, y: 0.24119894, z: 0.24119894}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5715,7 +5715,7 @@ Transform:
   m_GameObject: {fileID: 6009430980291800419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07197515, y: 0.01430434, z: 3.8135011}
+  m_LocalPosition: {x: -0.002, y: -0.011, z: 0.977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5819,7 +5819,7 @@ GameObject:
   - component: {fileID: 8293271443553537889}
   m_Layer: 0
   m_Name: Ar15
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5833,15 +5833,15 @@ Transform:
   m_GameObject: {fileID: 7131483358245264453}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.67, y: -3.68, z: 4.16}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.4700003, y: 3.4700003, z: 3.4700003}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 30508402488610740}
   - {fileID: -8679921383154817045}
   - {fileID: 7555713737623661497}
   - {fileID: 2098680254924889226}
   - {fileID: 1551041813765039832}
-  - {fileID: 30508402488610740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8293271443553537889
@@ -5887,7 +5887,7 @@ Transform:
   m_GameObject: {fileID: 7136478560989014604}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.853, z: -0.583}
+  m_LocalPosition: {x: 0, y: 0.119, z: -0.366}
   m_LocalScale: {x: 0.2881844, y: 0.2881844, z: 0.2881844}
   m_ConstrainProportionsScale: 0
   m_Children: []
