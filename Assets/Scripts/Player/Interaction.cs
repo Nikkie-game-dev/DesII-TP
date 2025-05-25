@@ -41,15 +41,12 @@ namespace Player
                     Destroy(_weapon);
                 }
                 
-                _weapon = Instantiate(lookAt.collider.gameObject);
+                _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
 
                 if (_weapon)
                 {
                     Destroy(_weapon.GetComponent<Rigidbody>());
                     Destroy(_weapon.GetComponent<BoxCollider>());
-
-                    _weapon.transform.localPosition = Vector3.zero;
-                    _weapon.transform.localRotation = Quaternion.identity;
                     
                     _weapon.transform.SetParent(hand,false);
                     
