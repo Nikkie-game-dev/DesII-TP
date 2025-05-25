@@ -24,24 +24,24 @@ namespace Services
         /// <summary>
         /// Tries to add a service if it does not exist. Fails silently.
         /// </summary>
-        /// <param name="service">Service to alter</param>
-        public static void TryAddService([NotNull] Service service)
+        /// <param name="serviceName">Service to alter</param>
+        public static Service TryAddService([NotNull] string serviceName)
         {
-            if (service == null)
-            {
-                Debug.LogError("service cannot be null nor empty.");
-            }
+            Service service = null;
             
             if (_services == null)
             {
-                _services = new List<Service> { service };
+                service = new Service(serviceName);
+                _services = new List<Service> { service};
             }
             
-            else if (!ServiceIsAvailable(service.GetServiceName()))
+            else if (!ServiceIsAvailable(serviceName))
             {
+                service = new Service(serviceName);
                 _services.Add(service);
             }
 
+            return service;
         }
 
         /// <summary>

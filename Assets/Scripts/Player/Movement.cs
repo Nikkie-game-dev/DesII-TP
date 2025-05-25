@@ -38,10 +38,8 @@ namespace Player
 
             run.action.started += _ => SpeedLimit = runSpeed;
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
-
-            Service = new Service("playerData");
-
-            ServiceProvider.TryAddService(Service);
+            
+            Service = ServiceProvider.TryAddService("playerData");
             ServiceProvider.ChangeAccess(Service, AccessType.Set, GetType());
             ServiceProvider.ChangeAccess(Service, AccessType.Get, typeof(Enemy.Movement));
         }

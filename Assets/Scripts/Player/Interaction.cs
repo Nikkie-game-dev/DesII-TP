@@ -45,9 +45,6 @@ namespace Player
 
                 if (_weapon)
                 {
-                    Destroy(_weapon.GetComponent<Rigidbody>());
-                    Destroy(_weapon.GetComponent<BoxCollider>());
-                    
                     _weapon.transform.SetParent(hand,false);
                     
                     _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
