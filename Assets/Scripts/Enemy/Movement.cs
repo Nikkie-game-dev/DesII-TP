@@ -18,6 +18,8 @@ namespace Enemy
             if (isStatic)
             {
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+                // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
+                rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
             }
             else if (searchPlayer)
             {
