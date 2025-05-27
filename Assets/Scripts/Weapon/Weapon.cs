@@ -1,3 +1,4 @@
+using System.Collections;
 using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ namespace Weapon
         [SerializeField] private float damage;
         [SerializeField] private int defAmmo;
         [SerializeField] private bool isHitScan;
+        [SerializeField] private GameObject laser;
 
         [HideInInspector] public int ammo;
 
@@ -47,8 +49,6 @@ namespace Weapon
                 }
                 else
                 {
-                    Debug.DrawRay(tip.position, tip.forward * power, Color.red, 3);
-
                     if (Physics.Raycast(tip.position, tip.forward, out var hit))
                     {
                         var objective = hit.transform.gameObject.GetComponent<Enemy.Stats>();
@@ -57,7 +57,14 @@ namespace Weapon
                             objective.ReceiveDamage(damage);
                         }
                     }
+
+                    var laserInstance = Instantiate(laser);
+                    laserInstance.SetActive(true);
+                    laserInstance.transform.position = tip.position;
+                    laserInstance.transform.rotation = tip.rotation;
+                    StartCoroutine(DestroyLaser(laserInstance));
                 }
+
                 ammo--;
             }
 
@@ -67,6 +74,12 @@ namespace Weapon
         public void Reload()
         {
             ammo = defAmmo;
+        }
+
+        private IEnumerator DestroyLaser(GameObject instance)
+        {
+            yield return new WaitForSeconds(3);
+            Destroy(instance);
         }
     }
 }
