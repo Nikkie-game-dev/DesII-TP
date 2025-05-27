@@ -14,7 +14,10 @@ namespace Player
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
-        [FormerlySerializedAs("main")] [SerializeField] private GameObject FirstPersonView;
+
+        [FormerlySerializedAs("FirstPersonView")] [FormerlySerializedAs("main")] [SerializeField]
+        private GameObject firstPersonView;
+
         [CanBeNull] private GameObject _scope;
 
         private Vector2 _look;
@@ -23,26 +26,26 @@ namespace Player
         private void OnEnable()
         {
             _sensitivity = sensitivity;
-            
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            
+
             look.action.started += _ => _look = look.action.ReadValue<Vector2>();
             look.action.performed += _ => _look = look.action.ReadValue<Vector2>();
             look.action.canceled += _ => _look = look.action.ReadValue<Vector2>();
-            
-            if(_scope)
+
+            if (_scope)
             {
                 scopeIn.action.started += _ =>
                 {
                     _scope.SetActive(true);
-                    FirstPersonView.SetActive(false);
+                    firstPersonView.SetActive(false);
                     _sensitivity = aimSensitivity;
                 };
                 scopeIn.action.canceled += _ =>
                 {
                     _scope.SetActive(false);
-                    FirstPersonView.SetActive(true);
+                    firstPersonView.SetActive(true);
                     _sensitivity = sensitivity;
                 };
             }
@@ -52,40 +55,41 @@ namespace Player
         {
             var addedAngle = _look * (_sensitivity * Time.fixedDeltaTime);
             var angle = head.rotation.eulerAngles.x + -addedAngle.y;
-            
+
             transform.Rotate(Vector3.up, addedAngle.x);
 
             if (angle > lowLimitAngle && angle < 180)
             {
-                head.transform.eulerAngles = new Vector3(lowLimitAngle, head.transform.eulerAngles.y, head.transform.eulerAngles.z);
+                head.transform.eulerAngles = new Vector3(lowLimitAngle, head.transform.eulerAngles.y,
+                    head.transform.eulerAngles.z);
             }
             else if (angle < highLimitAngle && angle > 180)
             {
-                head.transform.eulerAngles = new Vector3(highLimitAngle, head.transform.eulerAngles.y, head.transform.eulerAngles.z);
+                head.transform.eulerAngles = new Vector3(highLimitAngle, head.transform.eulerAngles.y,
+                    head.transform.eulerAngles.z);
             }
             else
             {
                 head.transform.Rotate(Vector3.right, -addedAngle.y);
             }
-            
         }
 
         public void SetScope([NotNull] GameObject scope)
         {
-            if(!scope) return;
-            
+            if (!scope) return;
+
             _scope = scope;
 
             scopeIn.action.started += _ =>
             {
                 _scope.SetActive(true);
-                FirstPersonView.SetActive(false);
+                firstPersonView.SetActive(false);
                 _sensitivity = aimSensitivity;
             };
             scopeIn.action.canceled += _ =>
             {
                 _scope.SetActive(false);
-                FirstPersonView.SetActive(true);
+                firstPersonView.SetActive(true);
                 _sensitivity = sensitivity;
             };
         }

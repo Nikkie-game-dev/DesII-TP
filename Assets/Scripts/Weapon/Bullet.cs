@@ -6,11 +6,10 @@ namespace Weapon
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour
     {
-        [HideInInspector]
-        public float force;
+        [HideInInspector] public float force;
 
         public float damage;
-        
+
         [SerializeField] private float selfDestroyTime;
         [SerializeField] private float destroyTimeAfterCollision;
         [SerializeField] private GameObject sparks;
@@ -19,7 +18,7 @@ namespace Weapon
 
         private void OnEnable()
         {
-            _rb = GetComponent<Rigidbody>();    
+            _rb = GetComponent<Rigidbody>();
         }
 
         public void Fire()
@@ -27,8 +26,8 @@ namespace Weapon
             StartCoroutine(Discharge());
             _selfDestroy = StartCoroutine(TimerDestroy(selfDestroyTime));
         }
-    
-    
+
+
         private IEnumerator Discharge()
         {
             yield return new WaitForFixedUpdate();
@@ -38,12 +37,9 @@ namespace Weapon
         private IEnumerator TimerDestroy(float time)
         {
             yield return new WaitForSeconds(time);
-        
-#if DEBUG
-            print("Self destroy");
-#endif
-        
-            Destroy(gameObject);
+
+           Debug.Log("Self destroy");
+           Destroy(gameObject);
         }
 
         private void OnCollisionEnter(Collision other)

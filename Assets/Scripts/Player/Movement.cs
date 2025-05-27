@@ -39,7 +39,7 @@ namespace Player
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
             
             Service = ServiceProvider.TryAddService("playerData");
-            ServiceProvider.ChangeAccess(Service, AccessType.Set, GetType());
+            ServiceProvider.ChangeAccess(Service, AccessType.Put, GetType());
             ServiceProvider.ChangeAccess(Service, AccessType.Get, typeof(Enemy.Movement));
         }
 
