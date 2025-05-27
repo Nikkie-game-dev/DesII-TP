@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -13,7 +14,7 @@ namespace Player
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
-        [SerializeField] private GameObject main;
+        [FormerlySerializedAs("main")] [SerializeField] private GameObject FirstPersonView;
         [CanBeNull] private GameObject _scope;
 
         private Vector2 _look;
@@ -35,13 +36,13 @@ namespace Player
                 scopeIn.action.started += _ =>
                 {
                     _scope.SetActive(true);
-                    main.SetActive(false);
+                    FirstPersonView.SetActive(false);
                     _sensitivity = aimSensitivity;
                 };
                 scopeIn.action.canceled += _ =>
                 {
                     _scope.SetActive(false);
-                    main.SetActive(true);
+                    FirstPersonView.SetActive(true);
                     _sensitivity = sensitivity;
                 };
             }
@@ -78,13 +79,13 @@ namespace Player
             scopeIn.action.started += _ =>
             {
                 _scope.SetActive(true);
-                main.SetActive(false);
+                FirstPersonView.SetActive(false);
                 _sensitivity = aimSensitivity;
             };
             scopeIn.action.canceled += _ =>
             {
                 _scope.SetActive(false);
-                main.SetActive(true);
+                FirstPersonView.SetActive(true);
                 _sensitivity = sensitivity;
             };
         }
