@@ -58,5 +58,15 @@ namespace Player
             yield return new WaitForFixedUpdate();
             rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
         }
+
+        public void MakeFlash(out float oldSpeed)
+        {
+            oldSpeed = walkingSpeed;
+            walkingSpeed *= 3;
+        }
+        public void NotTheFastestManAlive(float oldSpeed)
+        {
+            walkingSpeed = oldSpeed;
+        }
     }
 }
