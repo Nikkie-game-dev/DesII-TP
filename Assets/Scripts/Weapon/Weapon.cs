@@ -74,6 +74,7 @@ namespace Weapon
         public void Reload()
         {
             ammo = defAmmo;
+            ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);
             UI.HudController.OnReload.Invoke();
         }
 

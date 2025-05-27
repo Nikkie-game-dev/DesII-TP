@@ -82,7 +82,7 @@ MonoBehaviour:
   prefabBullet: {fileID: 0}
   tip: {fileID: 2098680254924889226}
   power: 50
-  damage: 200
+  damage: 50
   defAmmo: 5
   isHitScan: 1
   laser: {fileID: 804382914582487027}
