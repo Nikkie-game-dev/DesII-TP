@@ -1,4 +1,3 @@
-using System.Collections;
 using Services;
 using UnityEngine;
 
@@ -21,10 +20,6 @@ public class Entity : MonoBehaviour
         if (other.collider.CompareTag("Ground"))
         {
             onGround = true;
-            if (_shouldStop)
-            {
-                StartCoroutine(StopAfterJump());
-            }
         }
     }
 
@@ -46,30 +41,5 @@ public class Entity : MonoBehaviour
         {
             rb.AddForce(new Vector3(move.x, 0f, move.z) * -acceleration, ForceMode.Force);
         }
-    }
-
-    protected IEnumerator Stop()
-    {
-        yield return new WaitForFixedUpdate();
-
-        if (onGround)
-        {
-            rb.AddForce(
-                new Vector3(HorVelocity.normalized.x, 0f, HorVelocity.normalized.y) *
-                -(HorVelocity.magnitude - slideRate), ForceMode.Impulse);
-        }
-        else
-        {
-            _shouldStop = true;
-        }
-    }
-
-    private IEnumerator StopAfterJump()
-    {
-        yield return new WaitForFixedUpdate();
-
-        rb.AddForce(
-            new Vector3(HorVelocity.normalized.x, 0f, HorVelocity.normalized.y) *
-            -(HorVelocity.magnitude - jumpSlide), ForceMode.Impulse);
     }
 }

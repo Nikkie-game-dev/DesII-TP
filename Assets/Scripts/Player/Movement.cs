@@ -31,7 +31,6 @@ namespace Player
             movement.action.canceled += ctx =>
             {
                 _movInput = ctx.ReadValue<Vector2>();
-                StartCoroutine(Stop());
             };
 
             jump.action.started += _ => StartCoroutine(Jump());
