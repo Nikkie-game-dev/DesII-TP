@@ -83,6 +83,7 @@ namespace Services
         /// <param name="dataName">Name of the data to retrive</param>
         /// <param name="caller">Type of caller</param>
         /// <returns>Returns null if the service was not found, or if the data was not found. Otherwise returns Data</returns>
+        [CanBeNull]
         public static object Get(Service service, string dataName, Type caller)
         {
             if (service == null) return null;
@@ -147,7 +148,7 @@ namespace Services
         /// <param name="serviceName">Service to alter</param>
         /// <returns>null if serviceName is empty or if is not found, otherwise returns the service</returns>
         [CanBeNull]
-        private static Service GetService(string serviceName)
+        public static Service GetService(string serviceName)
         {
             if (string.IsNullOrEmpty(serviceName))
             {

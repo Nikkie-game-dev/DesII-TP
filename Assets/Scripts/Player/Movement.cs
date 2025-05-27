@@ -63,10 +63,12 @@ namespace Player
         {
             oldSpeed = walkingSpeed;
             walkingSpeed *= 3;
+            SpeedLimit = walkingSpeed;
         }
         public void NotTheFastestManAlive(float oldSpeed)
         {
             walkingSpeed = oldSpeed;
+            SpeedLimit = walkingSpeed;
         }
     }
 }

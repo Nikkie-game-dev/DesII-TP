@@ -56,6 +56,8 @@ namespace Player
                         _stats.MakeMortal(_oldHealth);
                     }
 
+                    _isGod = !_isGod;
+
                     break;
                 case Cheat.Flash:
                     if (!_isFlash)
@@ -66,6 +68,7 @@ namespace Player
                     {
                         _movement.NotTheFastestManAlive(_oldSpeed);
                     }
+                    _isFlash = !_isFlash;
 
                     break;
                 case Cheat.NextLevel:
