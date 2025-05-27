@@ -69,7 +69,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Crawl",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "9c8b0db2-1e6d-4c13-baac-8e0a7c58001c",
                     "expectedControlType": "",
@@ -385,22 +385,22 @@
                 {
                     "name": "",
                     "id": "824e2ee7-c454-439a-b1ed-fbf1f16014bf",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Crawl",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "f37d500c-f986-48f6-bcaa-d39076e26342",
-                    "path": "<Gamepad>/rightStickPress",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Crawl",
+                    "groups": ";Gamepad",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
