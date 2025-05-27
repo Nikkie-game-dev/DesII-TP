@@ -145,6 +145,32 @@ namespace Services
         private static bool ServiceIsAvailable(string serviceName) =>
             _services != null &&
             _services.Exists((ctx => ctx.GetServiceName() == serviceName));
-        
+
+
+        public static void Dump()
+        {
+            string output = "[Services]\n" +
+                            "# (Put, Get)\n";
+
+            foreach (var service in _services)
+            {
+                output += $"\n[Services.{service.GetServiceName()}]\n" +
+                          $"\n[Services.{service.GetServiceName()}.Access]\n";
+                foreach (var access in service.AccessReg)
+                {
+                    output += $"{access.Key} =  ({access.Value.Put}, {access.Value.Get})\n";
+                }
+
+                output += $"\n[Services.{service.GetServiceName()}.Data]\n";
+                foreach (var data in service.Data)
+                {
+                    output += $"{data.Key} = {data.Value}\n";
+                }
+
+                output += "\n";
+            }
+
+            File.WriteAllText("DUMP.toml", output);
+        }
     }
 }
