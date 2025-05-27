@@ -30,9 +30,9 @@ namespace Player
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
-            look.action.started += _ => _look = look.action.ReadValue<Vector2>();
-            look.action.performed += _ => _look = look.action.ReadValue<Vector2>();
-            look.action.canceled += _ => _look = look.action.ReadValue<Vector2>();
+            look.action.started += ReadValue;
+            look.action.performed += ReadValue;
+            look.action.canceled += ReadValue;
 
             if (_scope)
             {
@@ -49,6 +49,11 @@ namespace Player
                     _sensitivity = sensitivity;
                 };
             }
+        }
+
+        private void ReadValue(InputAction.CallbackContext ctx)
+        {
+            _look = ctx.ReadValue<Vector2>();
         }
 
         private void FixedUpdate()
@@ -92,6 +97,13 @@ namespace Player
                 firstPersonView.SetActive(true);
                 _sensitivity = sensitivity;
             };
+        }
+
+        private void OnDisable()
+        {
+            look.action.started -= ReadValue;
+            look.action.performed -= ReadValue;
+            look.action.canceled -= ReadValue;
         }
     }
 }

@@ -25,15 +25,11 @@ namespace Player
         {
             SpeedLimit = walkingSpeed;
 
-            movement.action.started += ctx => _movInput = ctx.ReadValue<Vector2>();
-            movement.action.performed += ctx => _movInput = ctx.ReadValue<Vector2>();
-            
-            movement.action.canceled += ctx =>
-            {
-                _movInput = ctx.ReadValue<Vector2>();
-            };
+            movement.action.started += ReadValue;
+            movement.action.performed += ReadValue;
+            movement.action.canceled += ReadValue;
 
-            jump.action.started += _ => StartCoroutine(Jump());
+            jump.action.started += ActionJump;
 
             run.action.started += _ => SpeedLimit = runSpeed;
             run.action.canceled += _ => SpeedLimit = walkingSpeed;
@@ -42,6 +38,9 @@ namespace Player
             ServiceProvider.ChangeAccess(Service, AccessType.Put, GetType());
             ServiceProvider.ChangeAccess(Service, AccessType.Get, typeof(Enemy.Movement));
         }
+
+        private void ActionJump(InputAction.CallbackContext _) => StartCoroutine(Jump());
+        
 
         private void FixedUpdate()
         {
@@ -69,6 +68,23 @@ namespace Player
         {
             walkingSpeed = oldSpeed;
             SpeedLimit = walkingSpeed;
+        }
+
+        private void OnDisable()
+        {
+            movement.action.started -= ReadValue;
+            movement.action.performed -= ReadValue;
+            movement.action.canceled -= ReadValue;
+
+            jump.action.started -= ActionJump;
+
+            run.action.started -= _ => SpeedLimit = runSpeed;
+            run.action.canceled -= _ => SpeedLimit = walkingSpeed;
+        }
+
+        private void ReadValue(InputAction.CallbackContext ctx)
+        {
+            _movInput = ctx.ReadValue<Vector2>();
         }
     }
 }

@@ -114,5 +114,17 @@ namespace Player
                     new Vector3(transform.forward.x, transform.forward.y + 1, transform.forward.z).normalized *
                     throwingForce, ForceMode.Impulse);
         }
+
+        private void OnDisable()
+        {
+            grabWeapon.action.started -= GrabWeapon;
+            
+            throwInHand.action.started -= _ =>
+            {
+                centerFrame.SetActive(true);
+                ThrowOldWeapon();
+                UI.HudController.OnThrowGun.Invoke();
+            };
+        }
     }
 }

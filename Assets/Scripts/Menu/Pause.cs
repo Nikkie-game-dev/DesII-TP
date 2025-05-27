@@ -13,8 +13,10 @@ namespace Menu
         private void OnEnable()
         {
             pauseMenu.SetActive(false);
-            pause.action.started += _ => TogglePause();
+            pause.action.started += ActionPause;
         }
+
+        private void ActionPause(InputAction.CallbackContext _) => TogglePause();
 
         private void TogglePause()
         {
@@ -26,10 +28,18 @@ namespace Menu
         }
 
         public void Continue() => TogglePause();
-        public void Return() {
+
+        public void Return()
+        {
             TogglePause();
             SceneManager.LoadScene(0);
         }
+
         public void Quit() => Application.Quit();
+
+        private void OnDisable()
+        {
+            pause.action.started -= ActionPause;
+        }
     }
 }

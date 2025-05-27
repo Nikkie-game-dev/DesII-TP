@@ -39,7 +39,6 @@ namespace Player
             flash.action.started += _ => ToggleCheat(Cheat.Flash);
             nextLevel.action.started += _ => ToggleCheat(Cheat.NextLevel);
             dump.action.started += _ => ServiceProvider.Dump();
-            
         }
 
         private void ToggleCheat(Cheat cheat)
@@ -68,6 +67,7 @@ namespace Player
                     {
                         _movement.NotTheFastestManAlive(_oldSpeed);
                     }
+
                     _isFlash = !_isFlash;
 
                     break;
@@ -77,6 +77,14 @@ namespace Player
                 default:
                     throw new ArgumentOutOfRangeException(nameof(cheat), cheat, null);
             }
+        }
+
+        private void OnDisable()
+        {
+            godMode.action.started -= _ => ToggleCheat(Cheat.God);
+            flash.action.started -= _ => ToggleCheat(Cheat.Flash);
+            nextLevel.action.started -= _ => ToggleCheat(Cheat.NextLevel);
+            dump.action.started -= _ => ServiceProvider.Dump();
         }
     }
 }
