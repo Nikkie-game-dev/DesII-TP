@@ -8,7 +8,15 @@ namespace Enemy
 
         public void ReceiveDamage(float amount)
         {
-            health -= amount;
+            if (health > 0)
+            {
+                health -= amount;
+            }
+            else
+            {
+                Destroy(gameObject);
+                //TODO: ragdoll
+            }
         }
     }
 }
