@@ -74,6 +74,7 @@ namespace Weapon
         public void Reload()
         {
             ammo = defAmmo;
+            UI.HudController.OnReload.Invoke();
         }
 
         private IEnumerator DestroyLaser(GameObject instance)

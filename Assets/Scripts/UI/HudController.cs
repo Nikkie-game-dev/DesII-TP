@@ -11,6 +11,7 @@ namespace UI
         public static UnityEvent OnTakeDamage;
         public static UnityEvent OnFire;
         public static UnityEvent OnTakeGun;
+        public static UnityEvent OnThrowGun;
         public static UnityEvent OnReload;
 
         [SerializeField] private TMP_Text ammo;
@@ -28,6 +29,7 @@ namespace UI
             OnFire = new UnityEvent();
             OnTakeGun = new UnityEvent();
             OnReload = new UnityEvent();
+            OnThrowGun = new UnityEvent();
 
             _playerData = ServiceProvider.TryAddService("playerData");
             _weaponData = ServiceProvider.TryAddService("weaponData");
@@ -39,6 +41,7 @@ namespace UI
             OnTakeGun.AddListener(UpdateAmmo);
             OnReload.AddListener(UpdateAmmo);
             OnTakeDamage.AddListener(UpdateHealth);
+            OnThrowGun.AddListener(RemoveAmmo);
         }
 
         private void UpdateAmmo()
@@ -51,6 +54,11 @@ namespace UI
         {
             _health = (float)ServiceProvider.Get(_playerData, "health", GetType());
             health.color = new Color(255, 0, 0, (255 - 255 * (_health / _maxHealth)));
+        }
+
+        private void RemoveAmmo()
+        {
+            ammo.text = "";
         }
     }
 }

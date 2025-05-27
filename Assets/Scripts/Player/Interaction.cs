@@ -35,6 +35,7 @@ namespace Player
             {
                 centerFrame.SetActive(true);
                 ThrowOldWeapon();
+                UI.HudController.OnThrowGun.Invoke();
             };
             
             _sight = gameObject.GetComponentInParent<Sight>();
