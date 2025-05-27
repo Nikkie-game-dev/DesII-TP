@@ -2,6 +2,7 @@ using System;
 using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -68,7 +69,7 @@ namespace Player
 
                     break;
                 case Cheat.NextLevel:
-                    //TODO
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(cheat), cheat, null);
