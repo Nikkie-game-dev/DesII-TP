@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Menu
 {
@@ -25,6 +26,10 @@ namespace Menu
         }
 
         public void Continue() => TogglePause();
+        public void Return() {
+            TogglePause();
+            SceneManager.LoadScene(0);
+        }
         public void Quit() => Application.Quit();
     }
 }

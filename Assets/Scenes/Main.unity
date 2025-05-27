@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 850947775}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 873094125}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -711,8 +711,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 1120369429361536294, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   grabWeapon: {fileID: 1781555164194001046, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
+  reload: {fileID: -1726209794808606566, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
+  throwInHand: {fileID: -3293580497782927018, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   hand: {fileID: 904243954}
-  maxDistanceToGrab: 10
+  maxDistanceToGrab: 20
+  throwingForce: 8
 --- !u!1001 &891545291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -800,6 +803,10 @@ PrefabInstance:
     - target: {fileID: 7917865547807979460, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917865547807979460, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1015,6 +1022,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7917865547807979460, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3581096978035293237, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
@@ -1194,6 +1205,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 850947770}
     m_Modifications:
+    - target: {fileID: 1800618800493352913, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905911543930905406, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2278876341097352761, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1205,6 +1224,18 @@ PrefabInstance:
     - target: {fileID: 2591082817760926564, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_Name
       value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083302883295933554, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083302883295933554, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687204877315815894, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6904053976054357802, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1257,6 +1288,10 @@ PrefabInstance:
     - target: {fileID: 6904053976054357802, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680154818843063290, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1738,6 +1773,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3280096058789094457, guid: efa14d6c2c261e048ad9955db76d279b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5764537036924228036, guid: efa14d6c2c261e048ad9955db76d279b, type: 3}
       propertyPath: m_Name
       value: RailGun Grab
@@ -1795,6 +1834,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1414948601137515389, guid: 849f3d21c43ac4043af6b63479f0144c, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6211977578342209309, guid: 849f3d21c43ac4043af6b63479f0144c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.359463

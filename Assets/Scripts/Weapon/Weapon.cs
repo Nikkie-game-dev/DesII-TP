@@ -37,6 +37,8 @@ namespace Weapon
 
         public void Fire(InputAction.CallbackContext _)
         {
+            if (Cursor.lockState == CursorLockMode.None) return;
+            
             if (ammo > 0)
             {
                 if (!isHitScan)
