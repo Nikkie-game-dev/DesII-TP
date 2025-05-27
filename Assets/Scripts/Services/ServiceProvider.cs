@@ -1,18 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using JetBrains.Annotations;
-using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Services
 {
     public enum AccessType
     {
         Get,
-        Set,
+        Put,
         GetSet,
         Remove,
     }
-    
+
     /// <summary>
     /// It provides methods to access global services, where each service determine who can get and put data. It can store any type of data.
     /// </summary>
@@ -22,23 +23,27 @@ namespace Services
 
 
         /// <summary>
-        /// Tries to add a service if it does not exist. Fails silently.
+        /// Tries to add a service if it does not exist. if it does, it gets it.
         /// </summary>
         /// <param name="serviceName">Service to alter</param>
         public static Service TryAddService([NotNull] string serviceName)
         {
-            Service service = null;
-            
+            Service service;
+
             if (_services == null)
             {
                 service = new Service(serviceName);
-                _services = new List<Service> { service};
+                _services = new List<Service> { service };
             }
-            
+
             else if (!ServiceIsAvailable(serviceName))
             {
                 service = new Service(serviceName);
                 _services.Add(service);
+            }
+            else
+            {
+                service = GetService(serviceName);
             }
 
             return service;
@@ -82,19 +87,29 @@ namespace Services
         {
             if (service == null) return null;
 
-            if (!service.AccessReg[caller].Get)
+            if (!service.AccessReg.TryGetValue(caller, out var access))
             {
-                Debug.LogWarning("The caller cannot access this service as GET.");
-                return null;
+                Debug.LogWarning($"No service with caller {caller} registered.");
+            }
+            else
+            {
+                if (!access.Get)
+                {
+                    Debug.LogWarning(
+                        $"The caller {caller} cannot access this service ({service.GetServiceName()}) as GET.");
+                    return null;
+                }
+
+                if (service.Data.TryGetValue(dataName, out var data))
+                {
+                    return data;
+                }
+
+                Debug.LogWarning($"Could not found data with name {dataName}");
             }
 
 
-            if (!service.Data.TryGetValue(dataName, out var data))
-            {
-                Debug.LogWarning($"The data {dataName} was not found.");
-            }
-
-            return data;
+            return null;
         }
 
         /// <summary>
@@ -108,13 +123,21 @@ namespace Services
         {
             if (service == null) return;
 
-            if (!service.AccessReg[caller].Put)
+            if (!service.AccessReg.TryGetValue(caller, out var access))
             {
-                Debug.LogWarning("The caller cannot access this service as PUT.");
+                Debug.LogWarning($"No service with caller {caller} registered.");
             }
             else
             {
-                service.Data[dataName] = value;
+                if (access.Put)
+                {
+                    service.Data[dataName] = value;
+                }
+                else
+                {
+                    Debug.LogWarning(
+                        $"The caller {caller} cannot access this service ({service.GetServiceName()}) as PUT.");
+                }
             }
         }
 

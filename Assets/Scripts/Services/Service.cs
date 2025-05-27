@@ -52,7 +52,7 @@ namespace Services
                 case AccessType.Get:
                     AccessReg[caller] = new Access(true, false);
                     break;
-                case AccessType.Set:
+                case AccessType.Put:
                     AccessReg[caller] = new Access(false, true);
                     break;
                 case AccessType.GetSet:
