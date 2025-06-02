@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,16 +31,15 @@ namespace Player
         private void OnEnable()
         {
             grabWeapon.action.started += GrabWeapon;
-            
+
             throwInHand.action.started += _ =>
             {
                 centerFrame.SetActive(true);
                 ThrowOldWeapon();
                 UI.HudController.OnThrowGun.Invoke();
             };
-            
+
             _sight = gameObject.GetComponentInParent<Sight>();
-            
         }
 
         private void GrabWeapon(InputAction.CallbackContext _)
@@ -60,39 +60,40 @@ namespace Player
 
         private void SetWeapon([NotNull] GameObject weaponOnGround)
         {
-            if (_weapon)
+            if (!_weapon) return;
+
+            _weapon.transform.SetParent(hand, false);
+            _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
+
+            _weaponGrab = weaponOnGround;
+            _weaponGrab.SetActive(false);
+
+            if (_weaponScript)
             {
-                _weapon.transform.SetParent(hand, false);
-                _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
+                fire.action.started += FireAction;
 
-                _weaponGrab = weaponOnGround;
-                _weaponGrab.SetActive(false);
+                _sight.SetScope(_weapon.transform.GetChild(0).gameObject);
 
-                if (_weaponScript)
-                {
-                    fire.action.started += ctx =>
-                    {
-                        _weaponScript.Fire(ctx);
-                        UI.HudController.OnFire.Invoke();
-                    };
-                    
-                    _sight.SetScope(_weapon.transform.GetChild(0).gameObject);
-                    
-                    _weaponScript.StartData();
-                    
-                    UI.HudController.OnTakeGun.Invoke();
-                    
-                    reload.action.started += _ => _weaponScript.Reload();
-                    
-                    _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Weapon.Weapon>();
-                    
-                    if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
-                }
-                else
-                {
-                    Debug.Log("Weapon script not attached to this weapon.");
-                }
+                _weaponScript.StartData();
+
+                UI.HudController.OnTakeGun.Invoke();
+
+                reload.action.started += _weaponScript.Reload;
+
+                _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Weapon.Weapon>();
+
+                if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
             }
+            else
+            {
+                Debug.Log("Weapon script not attached to this weapon.");
+            }
+        }
+
+        private void FireAction(InputAction.CallbackContext ctx)
+        {
+            _weaponScript?.Fire(ctx);
+            UI.HudController.OnFire.Invoke();
         }
 
         private void ThrowOldWeapon()
@@ -118,6 +119,13 @@ namespace Player
         private void OnDisable()
         {
             grabWeapon.action.started -= GrabWeapon;
+
+            if(_weaponScript)
+            {
+                fire.action.started -= FireAction;
+                reload.action.started -= _weaponScript.Reload;
+            }
+            
             
             throwInHand.action.started -= _ =>
             {

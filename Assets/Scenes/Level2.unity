@@ -2825,6 +2825,10 @@ PrefabInstance:
       propertyPath: isStatic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3901235417757242038, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4688711883053182890, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: m_Name
       value: Enemy Static
@@ -6272,6 +6276,10 @@ PrefabInstance:
     - target: {fileID: 1921360272845439887, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: isStatic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901235417757242038, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4688711883053182890, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: m_Name
@@ -11919,6 +11927,10 @@ PrefabInstance:
       propertyPath: isStatic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3901235417757242038, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4688711883053182890, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: m_Name
       value: Enemy Static (2)
@@ -12173,6 +12185,10 @@ PrefabInstance:
     - target: {fileID: 1921360272845439887, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: isStatic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901235417757242038, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4688711883053182890, guid: 9cf82142c6292a141b9062ffbd3c5973, type: 3}
       propertyPath: m_Name

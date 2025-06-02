@@ -73,7 +73,7 @@ namespace Weapon
             ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);
         }
 
-        public void Reload()
+        public void Reload(InputAction.CallbackContext _)
         {
             ammo = defAmmo;
             ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);

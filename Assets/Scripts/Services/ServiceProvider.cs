@@ -173,8 +173,8 @@ namespace Services
 
         public static void Dump()
         {
-            string output = "[Services]\n" +
-                            "# (Put, Get)\n";
+            var output = "[Services]\n" +
+                         "# (Put, Get)\n";
 
             foreach (var service in _services)
             {
