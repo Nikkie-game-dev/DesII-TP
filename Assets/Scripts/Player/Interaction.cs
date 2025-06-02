@@ -92,7 +92,7 @@ namespace Player
 
         private void FireAction(InputAction.CallbackContext ctx)
         {
-            _weaponScript?.Fire(ctx);
+            _weaponScript?.Fire();
             UI.HudController.OnFire.Invoke();
         }
 
@@ -100,7 +100,8 @@ namespace Player
         {
             if (!_weaponGrab || !_weaponScript || !_weaponGrabScript) return;
 
-            fire.action.started -= _weaponScript.Fire;
+            fire.action.started -= FireAction;
+            reload.action.started -= _weaponScript.Reload;
 
             Destroy(_weapon);
 

@@ -46,13 +46,13 @@ namespace UI
 
         private void UpdateAmmo()
         {
-            _ammo = (int) ServiceProvider.Get(_weaponData, "ammo", GetType());
+            _ammo = (int) ServiceProvider.Get(_weaponData, "ammo", GetType())!;
             ammo.text = _ammo.ToString();
         }
 
         private void UpdateHealth()
         {
-            _health = (float)ServiceProvider.Get(_playerData, "health", GetType());
+            _health = (float)ServiceProvider.Get(_playerData, "health", GetType())!;
             health.color = new Color(255, 0, 0, (255 - 255 * (_health / _maxHealth)));
         }
 

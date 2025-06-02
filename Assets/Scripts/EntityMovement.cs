@@ -7,8 +7,6 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected float acceleration;
     [SerializeField] protected bool onGround;
-    [SerializeField] private float slideRate;
-    [SerializeField] private float jumpSlide;
     protected Vector2 HorVelocity;
     protected float SpeedLimit;
     protected Service Service;

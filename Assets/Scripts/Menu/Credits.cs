@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,6 +6,12 @@ namespace Menu
 {
     public class Credits : MonoBehaviour
     {
+        private void OnEnable()
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         public void Return() => SceneManager.LoadScene(0);
 
         public void ProjectBifron() => Application.OpenURL("https://projectbifron.itch.io");

@@ -32,10 +32,12 @@ namespace Enemy
                 Destroy(gameObject);
                 var amountEnemies =
                     (int)ServiceProvider.Get(_gameManagerData, "amountEnemies", GetType())!; //cant be nullable here
+                
                 ServiceProvider.Put(_gameManagerData, "amountEnemies", GetType(), amountEnemies - 1);
+                
                 if (amountEnemies - 1 <= 0)
                 {
-                    NextLevel();
+                    NextLevel(); //TODO scene manager
                 }
             }
         }

@@ -8,6 +8,7 @@ namespace Menu
     {
         [SerializeField] private InputActionReference pause;
         [SerializeField] private GameObject pauseMenu;
+        [SerializeField] private int sceneBuildIndex;
         private bool _isPaused;
 
         private void OnEnable()
@@ -16,23 +17,23 @@ namespace Menu
             pause.action.started += ActionPause;
         }
 
-        private void ActionPause(InputAction.CallbackContext _) => TogglePause();
+        private void ActionPause(InputAction.CallbackContext _) => TogglePause(true);
 
-        private void TogglePause()
+        private void TogglePause(bool showCursor)
         {
             _isPaused = !_isPaused;
-            Cursor.lockState = _isPaused ? CursorLockMode.None : CursorLockMode.Locked;
-            Cursor.visible = _isPaused;
+            Cursor.lockState = showCursor ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = showCursor;
             pauseMenu.SetActive(_isPaused);
             Time.timeScale = _isPaused ? 0f : 1f;
         }
 
-        public void Continue() => TogglePause();
+        public void Continue() => TogglePause(false);
 
         public void Return()
         {
-            TogglePause();
-            SceneManager.LoadScene(0);
+            TogglePause(true);
+            SceneManager.LoadScene(sceneBuildIndex);
         }
 
         public void Quit() => Application.Quit();

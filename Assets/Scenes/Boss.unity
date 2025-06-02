@@ -3805,6 +3805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pause: {fileID: -1844428335443369832, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   pauseMenu: {fileID: 500826463}
+  sceneBuildIndex: 0
 --- !u!114 &569680278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6790,6 +6791,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 569680277}
+    - target: {fileID: 8834327722158242789, guid: b5c7edeb0b7b6ce459252d48c42d8f5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8834327722158242789, guid: b5c7edeb0b7b6ce459252d48c42d8f5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Return

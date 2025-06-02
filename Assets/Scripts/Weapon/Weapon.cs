@@ -35,7 +35,7 @@ namespace Weapon
         }
 
 
-        public void Fire(InputAction.CallbackContext _)
+        public void Fire()
         {
             if (Cursor.lockState == CursorLockMode.None) return;
             
