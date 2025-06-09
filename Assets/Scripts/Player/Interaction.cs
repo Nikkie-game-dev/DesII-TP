@@ -15,6 +15,8 @@ namespace Player
         [SerializeField] private InputActionReference throwInHand;
         [SerializeField] private Transform hand;
         [SerializeField] private GameObject centerFrame;
+        [SerializeField] private Animator controller;
+        [SerializeField] private string animParam;
 
         [FormerlySerializedAs("minDistanceToGrab")] [SerializeField]
         private float maxDistanceToGrab;
@@ -44,18 +46,17 @@ namespace Player
 
         private void GrabWeapon(InputAction.CallbackContext _)
         {
-            if (Physics.Raycast(transform.position, transform.forward, out var lookAt, maxDistanceToGrab) &&
-                lookAt.collider.gameObject.CompareTag("Weapon"))
-            {
-                centerFrame.SetActive(false);
-                if (_weapon)
-                {
-                    ThrowOldWeapon();
-                }
+            if (!Physics.Raycast(transform.position, transform.forward, out var lookAt, maxDistanceToGrab) ||
+                !lookAt.collider.gameObject.CompareTag("Weapon")) return;
 
-                _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
-                SetWeapon(lookAt.collider.gameObject);
+            centerFrame.SetActive(false);
+            if (_weapon)
+            {
+                ThrowOldWeapon();
             }
+
+            _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
+            SetWeapon(lookAt.collider.gameObject);
         }
 
         private void SetWeapon([NotNull] GameObject weaponOnGround)
@@ -63,6 +64,7 @@ namespace Player
             if (!_weapon) return;
 
             _weapon.transform.SetParent(hand, false);
+            
             _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
 
             _weaponGrab = weaponOnGround;
@@ -83,6 +85,8 @@ namespace Player
                 _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Weapon.Weapon>();
 
                 if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
+
+                controller?.SetBool(Animator.StringToHash(animParam), true);
             }
             else
             {
@@ -115,19 +119,20 @@ namespace Player
                 .AddForce(
                     new Vector3(transform.forward.x, transform.forward.y + 1, transform.forward.z).normalized *
                     throwingForce, ForceMode.Impulse);
+            controller?.SetBool(Animator.StringToHash(animParam), false);
         }
 
         private void OnDisable()
         {
             grabWeapon.action.started -= GrabWeapon;
 
-            if(_weaponScript)
+            if (_weaponScript)
             {
                 fire.action.started -= FireAction;
                 reload.action.started -= _weaponScript.Reload;
             }
-            
-            
+
+
             throwInHand.action.started -= _ =>
             {
                 centerFrame.SetActive(true);

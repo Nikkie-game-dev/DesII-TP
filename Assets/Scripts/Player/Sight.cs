@@ -14,6 +14,10 @@ namespace Player
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
+        [SerializeField] private Animator controller;
+        [SerializeField] private string animParam;
+
+
 
         [FormerlySerializedAs("FirstPersonView")] [FormerlySerializedAs("main")] [SerializeField]
         private GameObject firstPersonView;
@@ -33,22 +37,16 @@ namespace Player
             look.action.started += ReadValue;
             look.action.performed += ReadValue;
             look.action.canceled += ReadValue;
+            
+            
+        }
 
-            if (_scope)
-            {
-                scopeIn.action.started += _ =>
-                {
-                    _scope.SetActive(true);
-                    firstPersonView.SetActive(false);
-                    _sensitivity = aimSensitivity;
-                };
-                scopeIn.action.canceled += _ =>
-                {
-                    _scope.SetActive(false);
-                    firstPersonView.SetActive(true);
-                    _sensitivity = sensitivity;
-                };
-            }
+        private void ScopeIn(InputAction.CallbackContext _)
+        {
+            _scope?.SetActive(!_scope.activeSelf);
+            firstPersonView.SetActive(true);
+            _sensitivity = sensitivity;
+            controller?.SetBool(Animator.StringToHash(animParam), _scope != null && _scope.activeSelf);
         }
 
         private void ReadValue(InputAction.CallbackContext ctx)
@@ -85,18 +83,8 @@ namespace Player
 
             _scope = scope;
 
-            scopeIn.action.started += _ =>
-            {
-                _scope.SetActive(true);
-                firstPersonView.SetActive(false);
-                _sensitivity = aimSensitivity;
-            };
-            scopeIn.action.canceled += _ =>
-            {
-                _scope.SetActive(false);
-                firstPersonView.SetActive(true);
-                _sensitivity = sensitivity;
-            };
+            scopeIn.action.started += ScopeIn;
+            scopeIn.action.canceled -= ScopeIn;
         }
 
         private void OnDisable()
@@ -104,6 +92,7 @@ namespace Player
             look.action.started -= ReadValue;
             look.action.performed -= ReadValue;
             look.action.canceled -= ReadValue;
+
         }
     }
 }
