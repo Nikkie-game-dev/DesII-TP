@@ -63,8 +63,6 @@ MonoBehaviour:
   rb: {fileID: 7917865547807979460}
   acceleration: 8000
   onGround: 0
-  slideRate: 0
-  jumpSlide: 0
   targets: []
   searchPlayer: 0
   isStatic: 0
@@ -107,34 +105,6 @@ PrefabInstance:
     - target: {fileID: 312118937176376738, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600074098931874852, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Size.x
-      value: 0.67478186
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600074098931874852, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Size.y
-      value: 3.2491202
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600074098931874852, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Center.y
-      value: 1.6262687
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302140371385135167, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7071858
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302140371385135167, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Size.y
-      value: 3.2843697
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302140371385135167, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Center.x
-      value: -0.50618464
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302140371385135167, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-      propertyPath: m_Center.y
-      value: 1.6388948
       objectReference: {fileID: 0}
     - target: {fileID: 2591082817760926564, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_Name
