@@ -21,6 +21,7 @@ namespace Player
         private float maxDistanceToGrab;
 
         [SerializeField] private float throwingForce;
+        [SerializeField] private float correction;
 
         [CanBeNull] private Weapon.Weapon _weaponScript;
         [CanBeNull] private Weapon.Weapon _weaponGrabScript;
@@ -45,8 +46,8 @@ namespace Player
 
         private void GrabWeapon(InputAction.CallbackContext _)
         {
-            if (!Physics.Raycast(transform.position, transform.forward, out var lookAt, maxDistanceToGrab) ||
-                !lookAt.collider.gameObject.CompareTag("Weapon")) return;
+            if (!Physics.Raycast(transform.position + transform.forward * correction, transform.forward, out var lookAt,
+                    maxDistanceToGrab) || !lookAt.collider.gameObject.CompareTag("Weapon")) return;
 
             centerFrame.SetActive(false);
             if (_weapon)
@@ -63,7 +64,7 @@ namespace Player
             if (!_weapon) return;
 
             _weapon.transform.SetParent(hand, false);
-            
+
             _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
 
             _weaponGrab = weaponOnGround;
