@@ -12,7 +12,8 @@ namespace Player
         [SerializeField] private InputActionReference grabWeapon;
         [SerializeField] private InputActionReference reload;
         [SerializeField] private InputActionReference throwInHand;
-        [SerializeField] private Transform hand;
+        [FormerlySerializedAs("hand")] [SerializeField] private Transform rightHand;
+        [SerializeField] private Transform leftHand;
         [SerializeField] private GameObject centerFrame;
         [SerializeField] private Animator controller;
         [SerializeField] private string animParam;
@@ -63,7 +64,7 @@ namespace Player
         {
             if (!_weapon) return;
 
-            _weapon.transform.SetParent(hand, false);
+            _weapon.transform.SetParent(rightHand, false);
 
             _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
 
@@ -111,8 +112,8 @@ namespace Player
 
             _weaponGrab.SetActive(true);
 
-            _weaponGrab.transform.localPosition = hand.position;
-            _weaponGrab.transform.rotation = hand.rotation;
+            _weaponGrab.transform.localPosition = rightHand.position;
+            _weaponGrab.transform.rotation = rightHand.rotation;
 
             _weaponGrabScript.ammo = _weaponScript.ammo;
             _weaponGrab.GetComponent<Rigidbody>()
@@ -139,6 +140,14 @@ namespace Player
                 ThrowOldWeapon();
                 UI.HudController.OnThrowGun.Invoke();
             };
+        }
+
+        private void OnAnimatorIK(int layerIndex)
+        {
+            controller.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f);
+            controller.SetIKPosition(AvatarIKGoal.RightHand, rightHand.position);
+            controller.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1f);
+            controller.SetIKPosition(AvatarIKGoal.LeftHand, leftHand.position);
         }
     }
 }

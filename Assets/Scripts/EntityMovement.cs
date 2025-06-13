@@ -7,11 +7,11 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected float acceleration;
     [SerializeField] protected bool onGround;
+    [SerializeField] private float deacceleration;
     protected Vector2 HorVelocity;
     protected float SpeedLimit;
     protected Service Service;
 
-    private bool _shouldStop;
 
     private void OnCollisionEnter(Collision other)
     {

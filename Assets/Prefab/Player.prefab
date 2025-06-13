@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 882065759612283013}
   - component: {fileID: 5056995024863820964}
   - component: {fileID: 1780206638234340474}
+  - component: {fileID: 4223647381807013510}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -70,6 +71,7 @@ MonoBehaviour:
   rb: {fileID: 1780206638234340474}
   acceleration: 8000
   onGround: 0
+  deacceleration: 0
   movement: {fileID: -1680190386980627800, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   jump: {fileID: -2099379676528639254, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   run: {fileID: -7471211009204490832, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
@@ -96,7 +98,7 @@ MonoBehaviour:
   aimSensitivity: 3
   highLimitAngle: 290
   lowLimitAngle: 50
-  controller: {fileID: 3617458627997154689}
+  controller: {fileID: 0}
   animParam: Aiming
   firstPersonView: {fileID: 0}
 --- !u!114 &882065759612283013
@@ -170,6 +172,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &4223647381807013510
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537356570698981289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2b533287cad080a4eb674658730160bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6640874800284757647
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,9 +242,10 @@ MonoBehaviour:
   grabWeapon: {fileID: 1781555164194001046, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   reload: {fileID: -1726209794808606566, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
   throwInHand: {fileID: -3293580497782927018, guid: 83134076cc88c7f4b8313e250e1e85e0, type: 3}
-  hand: {fileID: 3699238228614275895}
+  rightHand: {fileID: 3699238228614275895}
+  leftHand: {fileID: 8823736557999978001}
   centerFrame: {fileID: 0}
-  controller: {fileID: 3617458627997154689}
+  controller: {fileID: 0}
   animParam: HasRifle
   maxDistanceToGrab: 20
   throwingForce: 8
@@ -343,13 +368,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6904053976054357802, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
   m_PrefabInstance: {fileID: 8895689351496378818}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &3617458627997154689 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5278250794261124163, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
-  m_PrefabInstance: {fileID: 8895689351496378818}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3699238228614275895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5198706225796336373, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+  m_PrefabInstance: {fileID: 8895689351496378818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8823736557999978001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 74278553018818515, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
   m_PrefabInstance: {fileID: 8895689351496378818}
   m_PrefabAsset: {fileID: 0}

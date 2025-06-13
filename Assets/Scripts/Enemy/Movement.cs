@@ -8,10 +8,11 @@ namespace Enemy
         [SerializeField] private bool searchPlayer;
         [SerializeField] private bool isStatic;
         [SerializeField] private float maxSpeed;
+        [SerializeField] private Animator controller;
 
-        private Vector3 _currentTarget;
         private int _index;
         private int _old;
+        private bool _shouldStop;
 
         private void OnEnable()
         {
@@ -20,10 +21,6 @@ namespace Enemy
                 rb.constraints = RigidbodyConstraints.FreezeAll;
                 // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
                 rb.constraints &= ~RigidbodyConstraints.FreezePositionY;
-            }
-            else if (searchPlayer)
-            {
-                _currentTarget = Vector3.zero;
             }
             else
             {
@@ -36,26 +33,24 @@ namespace Enemy
         private void FixedUpdate()
         {
             HorVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.z);
-            Move(_currentTarget);
+            if (!_shouldStop)
+            {
+                Move(transform.forward);
+            }
+
+            controller?.SetFloat(Animator.StringToHash("Velocity"), HorVelocity.magnitude);
         }
-        
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Flag"))
+            if (other.CompareTag("Flag") && targets[_index].transform.position == other.transform.position)
             {
-                GetNewTarget();
+                controller?.SetTrigger(Animator.StringToHash("Stop"));
+                _shouldStop = true;
             }
             else if (searchPlayer && other.CompareTag("Player"))
             {
                 UpdateTarget(0);
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (searchPlayer && other.CompareTag("Player"))
-            {
-                _currentTarget = Vector3.zero;
             }
         }
 
@@ -67,9 +62,8 @@ namespace Enemy
             }
         }
 
-        private void GetNewTarget()
+        public void GetNewTarget()
         {
-            
             if (_index >= targets.Length - 1)
             {
                 _index = 0;
@@ -78,14 +72,16 @@ namespace Enemy
             {
                 _index++;
             }
-            
+
+            _shouldStop = false;
             UpdateTarget(_index);
         }
 
         private void UpdateTarget(int index)
         {
-            _currentTarget = (targets[index].position - transform.position).normalized;
-            _currentTarget.y = 0;
+            var target = (targets[index].transform.position - transform.position);
+            target.y = 0;
+            transform.rotation = Quaternion.LookRotation(target);
         }
     }
 }
