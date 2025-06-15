@@ -97,8 +97,11 @@ namespace Entities.Player
 
         private void FireAction(InputAction.CallbackContext ctx)
         {
-            _weaponScript?.Attack(ctx);
+            if(!_weaponScript || !_weaponScript.CanAttack()) return;
+            
+            _weaponScript.Attack(ctx);
             UI.HudController.OnFire.Invoke();
+            controller?.SetTrigger(Animator.StringToHash("Shoot"));
         }
 
         private void ThrowOldWeapon()

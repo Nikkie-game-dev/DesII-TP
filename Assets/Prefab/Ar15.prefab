@@ -524,7 +524,7 @@ MonoBehaviour:
   force: 0
   damage: 100
   selfDestroyTime: 10
-  destroyTimeAfterCollision: 3
+  destroyTimeAfterCollision: 1.5
   minSpeedForSparks: 6
   bodySlowDown: 7
   sparks: {fileID: 4467082614590038635}
@@ -5847,7 +5847,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7131483358245264453}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 4ce2e4da2501a6e40b7cb57352dcb0fb, type: 3}
   m_Controller: {fileID: 9100000, guid: 76a034894c85ee341be1cb7d7ace7acb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

@@ -6,10 +6,11 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class RayGun : Firearm
+    public class RailGun : Firearm
     {
         [SerializeField] private GameObject laser;
         [SerializeField] private float laserLifeTime;
+        
 
         private IEnumerator DestroyLaser(GameObject instance)
         {
@@ -19,28 +20,38 @@ namespace Weapons
 
         protected override void Fire()
         {
-            if (!CanAttack()) return;
-
-            if (Physics.Raycast(tip.position, tip.forward, out var hit))
+            if (CanAttack() && CanFire)
             {
-                var objective = hit.transform.gameObject.GetComponent<Stats>();
-                if (objective && objective.CompareTag("Enemy"))
-                {
-                    objective.ReceiveDamage(damage);
-                }
-            }
+                CanFire = false;
 
+                if (Physics.Raycast(tip.position, tip.forward, out var hit))
+                {
+                    var objective = hit.transform.gameObject.GetComponent<Stats>();
+                    if (objective && objective.CompareTag("Enemy"))
+                    {
+                        objective.ReceiveDamage(damage);
+                    }
+                }
+
+                ammo--;
+
+                ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+
+                controller.SetTrigger(Animator.StringToHash("Shoot"));
+            }
+        }
+
+        public void InstanceLaser()
+        {
             var laserInstance = Instantiate(laser);
             laserInstance.SetActive(true);
             laserInstance.transform.position = tip.position;
             laserInstance.transform.rotation = tip.rotation;
             StartCoroutine(DestroyLaser(laserInstance));
-            
-            ammo--;
-
-            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
         }
 
+        public void CanFireAgain() => CanFire = true;
+        
         public override void Reload(InputAction.CallbackContext _)
         {
             ReloadDefault();

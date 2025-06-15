@@ -11,17 +11,17 @@ namespace Weapons
 
         protected override void Fire()
         {
-            if (!CanAttack()) return;
-            
-            var newBullet = Instantiate(prefabBullet, tip.position, tip.rotation);
-            newBullet.gameObject.SetActive(true);
-            newBullet.force = power;
-            newBullet.damage = damage;
-            newBullet.Fire();
+            if (CanAttack())
+            {
+                var newBullet = Instantiate(prefabBullet, tip.position, tip.rotation);
+                newBullet.gameObject.SetActive(true);
+                newBullet.force = power;
+                newBullet.damage = damage;
+                newBullet.Fire();
 
-            ammo--;
-            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
-            
+                ammo--;
+                ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+            }
         }
 
         public override void Reload(InputAction.CallbackContext _)

@@ -12,6 +12,7 @@ namespace Weapons
         [HideInInspector] public int ammo;
         protected Service WeaponData;
         [SerializeField] protected Animator controller;
+        protected bool CanFire = true;
 
         private void OnEnable() => ammo = defAmmo;
 
@@ -29,13 +30,12 @@ namespace Weapons
             set => damage = value;
         }
 
-        public void Attack(InputAction.CallbackContext  context)
+        public void Attack(InputAction.CallbackContext context)
         {
             Fire();
-            controller.SetTrigger(Animator.StringToHash("Fire"));
         }
 
-        public bool CanAttack() => Cursor.lockState == CursorLockMode.None && ammo > 0;
+        public bool CanAttack() => Cursor.lockState == CursorLockMode.Locked && ammo > 0 && CanFire;
 
         protected abstract void Fire();
         public abstract void Reload(InputAction.CallbackContext _);

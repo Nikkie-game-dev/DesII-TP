@@ -9,5 +9,6 @@ namespace Weapons
         public void Attack(InputAction.CallbackContext context);
 
         public bool CanAttack();
+
     }
 }
