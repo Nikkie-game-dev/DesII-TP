@@ -40,7 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7616658959820244735}
-  - component: {fileID: 8293271443553537889}
+  - component: {fileID: 418676157113662270}
+  - component: {fileID: 7265723406101230263}
   m_Layer: 0
   m_Name: Rail Gun
   m_TagString: Weapon
@@ -67,7 +68,29 @@ Transform:
   - {fileID: 4142491116915812542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8293271443553537889
+--- !u!95 &418676157113662270
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131483358245264453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7265723406101230263
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,17 +99,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7131483358245264453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe8e685aec3a02145b55e0aa82d78749, type: 3}
+  m_Script: {fileID: 11500000, guid: 831c0c0c108e4ca5bc8786da10cb980f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 0}
   tip: {fileID: 2098680254924889226}
-  power: 50
-  damage: 50
+  damage: 200
   defAmmo: 5
-  isHitScan: 1
-  laser: {fileID: 804382914582487027}
   ammo: 0
+  controller: {fileID: 418676157113662270}
+  laser: {fileID: 804382914582487027}
+  laserLifeTime: 3
 --- !u!1 &7136478560989014604
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rail-gun
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b61ab801e0628644b8c26622f8053012, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 752de268edb43bc4d8550cfe2fc96aab, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Weapon
+namespace Weapons
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour

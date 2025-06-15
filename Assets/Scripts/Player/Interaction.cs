@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Weapons;
 
 
 namespace Player
@@ -24,8 +25,8 @@ namespace Player
         [SerializeField] private float throwingForce;
         [SerializeField] private float correction;
 
-        [CanBeNull] private Weapon.Weapon _weaponScript;
-        [CanBeNull] private Weapon.Weapon _weaponGrabScript;
+        [CanBeNull] private Firearm _weaponScript;
+        [CanBeNull] private Firearm _weaponGrabScript;
         [CanBeNull] private GameObject _weapon;
         [CanBeNull] private GameObject _weaponGrab;
 
@@ -66,7 +67,7 @@ namespace Player
 
             _weapon.transform.SetParent(rightHand, false);
 
-            _weaponScript = _weapon.GetComponent<Weapon.Weapon>();
+            _weaponScript = _weapon.GetComponent<Firearm>();
 
             _weaponGrab = weaponOnGround;
             _weaponGrab.SetActive(false);
@@ -83,7 +84,7 @@ namespace Player
 
                 reload.action.started += _weaponScript.Reload;
 
-                _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Weapon.Weapon>();
+                _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Firearm>();
 
                 if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
 
@@ -97,7 +98,7 @@ namespace Player
 
         private void FireAction(InputAction.CallbackContext ctx)
         {
-            _weaponScript?.Fire();
+            _weaponScript?.Attack(ctx);
             UI.HudController.OnFire.Invoke();
         }
 

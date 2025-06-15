@@ -5790,7 +5790,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7616658959820244735}
-  - component: {fileID: 8293271443553537889}
+  - component: {fileID: 3976022832331602762}
+  - component: {fileID: 1759369311945783611}
   m_Layer: 0
   m_Name: Ar15
   m_TagString: Weapon
@@ -5818,7 +5819,7 @@ Transform:
   - {fileID: 1551041813765039832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8293271443553537889
+--- !u!114 &3976022832331602762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5827,17 +5828,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 7131483358245264453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe8e685aec3a02145b55e0aa82d78749, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bdadfd99e9b445986ec0a812fba0a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBullet: {fileID: 3840614039589847343}
   tip: {fileID: 2098680254924889226}
-  power: 7
-  damage: 50
+  damage: 100
   defAmmo: 21
-  isHitScan: 0
-  laser: {fileID: 0}
   ammo: 0
+  controller: {fileID: 1759369311945783611}
+  prefabBullet: {fileID: 3840614039589847343}
+  power: 50
+--- !u!95 &1759369311945783611
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131483358245264453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76a034894c85ee341be1cb7d7ace7acb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7136478560989014604
 GameObject:
   m_ObjectHideFlags: 0
