@@ -2,7 +2,7 @@ using Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Enemy
+namespace Entities.Enemy
 {
     public class Stats : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using Services;
 using UnityEngine;
 
-namespace Player
+namespace Entities.Player
 {
     public class Stats : MonoBehaviour
     {

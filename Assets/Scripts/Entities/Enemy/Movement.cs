@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Enemy
+namespace Entities.Enemy
 {
     public class Movement : Entity
     {

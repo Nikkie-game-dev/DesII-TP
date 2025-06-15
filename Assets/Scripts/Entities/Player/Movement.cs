@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-namespace Player
+namespace Entities.Player
 {
     public class Movement : Entity
     {
@@ -17,8 +17,7 @@ namespace Player
 
         [FormerlySerializedAs("maxSpeed")] [FormerlySerializedAs("maxVelocity")] [SerializeField]
         private float walkingSpeed;
-
-
+        
         private Vector2 _movInput;
 
         private void OnEnable()

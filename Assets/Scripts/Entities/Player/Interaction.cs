@@ -4,8 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using Weapons;
 
-
-namespace Player
+namespace Entities.Player
 {
     public class Interaction : MonoBehaviour
     {

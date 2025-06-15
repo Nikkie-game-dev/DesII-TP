@@ -1,7 +1,7 @@
 using Services;
 using UnityEngine;
 
-namespace Enemy
+namespace Entities.Enemy
 {
     public class Interactions : MonoBehaviour
     {
@@ -9,11 +9,6 @@ namespace Enemy
         private void OnEnable()
         {
             _playerData = ServiceProvider.GetService("playerData");
-        }
-
-        private void FixedUpdate()
-        {
-            
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Entities.Enemy;
 using Services;
 using UnityEngine.InputSystem;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Weapons
 
             if (Physics.Raycast(tip.position, tip.forward, out var hit))
             {
-                var objective = hit.transform.gameObject.GetComponent<Enemy.Stats>();
+                var objective = hit.transform.gameObject.GetComponent<Stats>();
                 if (objective && objective.CompareTag("Enemy"))
                 {
                     objective.ReceiveDamage(damage);

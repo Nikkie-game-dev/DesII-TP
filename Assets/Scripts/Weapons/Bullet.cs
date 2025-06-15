@@ -1,4 +1,5 @@
 using System.Collections;
+using Entities.Enemy;
 using UnityEngine;
 
 namespace Weapons
@@ -67,7 +68,7 @@ namespace Weapons
         private void OnTriggerEnter(Collider other)
         {
             _rb.AddForce(-transform.forward * bodySlowDown, ForceMode.Impulse);
-            other.gameObject.GetComponentInParent<Enemy.Stats>().ReceiveDamage(damage);
+            other.gameObject.GetComponentInParent<Stats>().ReceiveDamage(damage);
         }
     }
 }
