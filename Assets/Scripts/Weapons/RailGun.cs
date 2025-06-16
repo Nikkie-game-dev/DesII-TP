@@ -1,6 +1,5 @@
 using System.Collections;
 using Entities.Enemy;
-using Services;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
@@ -33,11 +32,7 @@ namespace Weapons
                     }
                 }
 
-                ammo--;
-
-                ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
-
-                controller.SetTrigger(Animator.StringToHash("Shoot"));
+                TriggerShooting();
             }
         }
 

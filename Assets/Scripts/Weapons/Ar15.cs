@@ -1,4 +1,3 @@
-using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +7,7 @@ namespace Weapons
     {
         [SerializeField] private Bullet prefabBullet;
         [SerializeField] private float power;
+        [SerializeField] private ParticleSystem muzzleFlash;
 
         protected override void Fire()
         {
@@ -19,8 +19,8 @@ namespace Weapons
                 newBullet.damage = damage;
                 newBullet.Fire();
 
-                ammo--;
-                ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+                TriggerShooting();
+                muzzleFlash?.Play();
             }
         }
 

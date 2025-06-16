@@ -40,6 +40,15 @@ namespace Weapons
         protected abstract void Fire();
         public abstract void Reload(InputAction.CallbackContext _);
 
+        protected void TriggerShooting()
+        {
+            ammo--;
+
+            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+
+            controller?.SetTrigger(Animator.StringToHash("Shoot"));
+        }
+        
         protected void ReloadDefault()
         {
             ammo = defAmmo;
