@@ -4083,6 +4083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RailGun Grab
       objectReference: {fileID: 0}
+    - target: {fileID: 5764537036924228036, guid: efa14d6c2c261e048ad9955db76d279b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5979080467279450801, guid: efa14d6c2c261e048ad9955db76d279b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.085
