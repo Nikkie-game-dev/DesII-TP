@@ -9,18 +9,18 @@ namespace Weapons
         [SerializeField] protected Transform tip;
         [SerializeField] protected float damage;
         [SerializeField] protected int defAmmo;
-        [HideInInspector] public int ammo;
-        protected Service WeaponData;
         [SerializeField] protected Animator controller;
+        [HideInInspector] public int ammo;
         protected bool CanFire = true;
+        private Service _weaponData;
 
         private void OnEnable() => ammo = defAmmo;
 
         public void StartData()
         {
-            WeaponData = ServiceProvider.TryAddService("weaponData");
-            ServiceProvider.ChangeAccess(WeaponData, AccessType.Put, GetType());
-            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+            _weaponData = ServiceProvider.TryAddService("weaponData");
+            ServiceProvider.ChangeAccess(_weaponData, AccessType.Put, GetType());
+            ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);
         }
         
 
@@ -44,7 +44,7 @@ namespace Weapons
         {
             ammo--;
 
-            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+            ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);
 
             controller?.SetTrigger(Animator.StringToHash("Shoot"));
         }
@@ -52,7 +52,7 @@ namespace Weapons
         protected void ReloadDefault()
         {
             ammo = defAmmo;
-            ServiceProvider.Put(WeaponData, "ammo", GetType(), ammo);
+            ServiceProvider.Put(_weaponData, "ammo", GetType(), ammo);
             UI.HudController.OnReload.Invoke();
         }
     }

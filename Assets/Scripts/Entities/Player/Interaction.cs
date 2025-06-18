@@ -115,7 +115,7 @@ namespace Entities.Player
 
             _weaponGrab.SetActive(true);
 
-            _weaponGrab.transform.localPosition = rightHand.position;
+            _weaponGrab.transform.localPosition = rightHand.position + rightHand.forward;
             _weaponGrab.transform.rotation = rightHand.rotation;
 
             _weaponGrabScript.ammo = _weaponScript.ammo;
