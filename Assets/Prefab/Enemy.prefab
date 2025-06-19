@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3901235417757242038}
   - component: {fileID: 1921360272845439887}
   - component: {fileID: 7917865547807979460}
-  - component: {fileID: 4231161273297007242}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -49,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  deadSoldier: {fileID: 0}
 --- !u!114 &1921360272845439887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   searchPlayer: 0
   isStatic: 0
   maxSpeed: 0
-  controller: {fileID: 4231161273297007242}
+  controller: {fileID: 1639074672893184715}
 --- !u!54 &7917865547807979460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -97,28 +97,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!95 &4231161273297007242
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4688711883053182890}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-  m_Controller: {fileID: 9100000, guid: c10eb36c23fcc74468137243019a231e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &7931335350760337181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,6 +181,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8696146048750593494, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c10eb36c23fcc74468137243019a231e, type: 2}
     - target: {fileID: 9031819522473235123, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 128
@@ -219,6 +201,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+--- !u!95 &1639074672893184715 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8696146048750593494, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+  m_PrefabInstance: {fileID: 7931335350760337181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3585397440444280887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6904053976054357802, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}

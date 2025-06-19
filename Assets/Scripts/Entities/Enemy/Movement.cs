@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Entities.Enemy
 {
@@ -8,7 +9,7 @@ namespace Entities.Enemy
         [SerializeField] private bool searchPlayer;
         [SerializeField] private bool isStatic;
         [SerializeField] private float maxSpeed;
-        [SerializeField] private Animator controller;
+        [FormerlySerializedAs("controller")] [SerializeField] private Animator animator;
 
         private int _index;
         private int _old;
@@ -38,14 +39,14 @@ namespace Entities.Enemy
                 Move(transform.forward);
             }
 
-            controller?.SetFloat(Animator.StringToHash("Velocity"), HorVelocity.magnitude);
+            animator?.SetFloat(Animator.StringToHash("Velocity"), HorVelocity.magnitude);
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Flag") && targets[_index].transform.position == other.transform.position)
             {
-                controller?.SetTrigger(Animator.StringToHash("Stop"));
+                animator?.SetTrigger(Animator.StringToHash("Stop"));
                 _shouldStop = true;
             }
             else if (searchPlayer && other.CompareTag("Player"))

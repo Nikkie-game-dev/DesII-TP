@@ -14,7 +14,7 @@ namespace Entities.Player
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
-        [SerializeField] private Animator controller;
+        [FormerlySerializedAs("controller")] [SerializeField] private Animator animator;
         [SerializeField] private string animParam;
 
 
@@ -46,7 +46,7 @@ namespace Entities.Player
             _scope?.SetActive(!_scope.activeSelf);
             firstPersonView.SetActive(true);
             _sensitivity = sensitivity;
-            controller?.SetBool(Animator.StringToHash(animParam), _scope != null && _scope.activeSelf);
+            animator?.SetBool(Animator.StringToHash(animParam), _scope != null && _scope.activeSelf);
         }
 
         private void ReadValue(InputAction.CallbackContext ctx)

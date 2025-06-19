@@ -12,12 +12,14 @@ namespace Entities.Player
         [SerializeField] private InputActionReference grabWeapon;
         [SerializeField] private InputActionReference reload;
         [SerializeField] private InputActionReference throwInHand;
-        [FormerlySerializedAs("hand")] [SerializeField] private Transform rightHand;
-        [SerializeField] private Transform leftHand;
-        [SerializeField] private GameObject centerFrame;
-        [SerializeField] private Animator controller;
-        [SerializeField] private string animParam;
 
+        [SerializeField] private Transform gunHolder;
+        
+        [SerializeField] private GameObject centerFrame;
+        
+        [FormerlySerializedAs("controller")] [SerializeField] private Animator animator;
+        [SerializeField] private string animParam;
+        
         [FormerlySerializedAs("minDistanceToGrab")] [SerializeField]
         private float maxDistanceToGrab;
 
@@ -35,12 +37,7 @@ namespace Entities.Player
         {
             grabWeapon.action.started += GrabWeapon;
 
-            throwInHand.action.started += _ =>
-            {
-                centerFrame.SetActive(true);
-                ThrowOldWeapon();
-                UI.HudController.OnThrowGun.Invoke();
-            };
+            throwInHand.action.started += ThrowWeaponAction;
 
             _sight = gameObject.GetComponentInParent<Sight>();
         }
@@ -58,13 +55,21 @@ namespace Entities.Player
 
             _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
             SetWeapon(lookAt.collider.gameObject);
+            IkController.OnGunGrab.Invoke();
+        }
+
+        private void ThrowWeaponAction(InputAction.CallbackContext _)
+        {
+            centerFrame.SetActive(true);
+            ThrowOldWeapon();
+            UI.HudController.OnThrowGun.Invoke();
         }
 
         private void SetWeapon([NotNull] GameObject weaponOnGround)
         {
             if (!_weapon) return;
 
-            _weapon.transform.SetParent(rightHand, false);
+            _weapon.transform.SetParent(gunHolder, false);
 
             _weaponScript = _weapon.GetComponent<Firearm>();
 
@@ -74,20 +79,19 @@ namespace Entities.Player
             if (_weaponScript)
             {
                 fire.action.started += FireAction;
-
+                reload.action.started += _weaponScript.Reload;
+                
+                
                 _sight.SetScope(_weapon.transform.GetChild(0).gameObject);
+                
 
                 _weaponScript.StartData();
-
+                _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Firearm>();
+                if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
+                
                 UI.HudController.OnTakeGun.Invoke();
 
-                reload.action.started += _weaponScript.Reload;
-
-                _weaponGrabScript = _weaponGrab.transform.GetChild(0).GetComponent<Firearm>();
-
-                if (_weaponGrabScript) _weaponScript.ammo = _weaponGrabScript.ammo;
-
-                controller?.SetBool(Animator.StringToHash(animParam), true);
+                animator?.SetBool(Animator.StringToHash(animParam), true);
             }
             else
             {
@@ -101,13 +105,15 @@ namespace Entities.Player
             
             _weaponScript.Attack(ctx);
             UI.HudController.OnFire.Invoke();
-            controller?.SetTrigger(Animator.StringToHash("Shoot"));
+            animator?.SetTrigger(Animator.StringToHash("Shoot"));
         }
 
         private void ThrowOldWeapon()
         {
             if (!_weaponGrab || !_weaponScript || !_weaponGrabScript) return;
-
+            
+            IkController.OnGunDrop.Invoke();
+            
             fire.action.started -= FireAction;
             reload.action.started -= _weaponScript.Reload;
 
@@ -115,15 +121,15 @@ namespace Entities.Player
 
             _weaponGrab.SetActive(true);
 
-            _weaponGrab.transform.localPosition = rightHand.position + rightHand.forward;
-            _weaponGrab.transform.rotation = rightHand.rotation;
+            _weaponGrab.transform.localPosition = gunHolder.position + gunHolder.forward;
+            _weaponGrab.transform.rotation = gunHolder.rotation;
 
             _weaponGrabScript.ammo = _weaponScript.ammo;
             _weaponGrab.GetComponent<Rigidbody>()
                 .AddForce(
                     new Vector3(transform.forward.x, transform.forward.y + 1, transform.forward.z).normalized *
                     throwingForce, ForceMode.Impulse);
-            controller?.SetBool(Animator.StringToHash(animParam), false);
+            animator?.SetBool(Animator.StringToHash(animParam), false);
         }
 
         private void OnDisable()
@@ -137,20 +143,7 @@ namespace Entities.Player
             }
 
 
-            throwInHand.action.started -= _ =>
-            {
-                centerFrame.SetActive(true);
-                ThrowOldWeapon();
-                UI.HudController.OnThrowGun.Invoke();
-            };
-        }
-
-        private void OnAnimatorIK(int layerIndex)
-        {
-            controller.SetIKPositionWeight(AvatarIKGoal.RightHand, 1f);
-            controller.SetIKPosition(AvatarIKGoal.RightHand, rightHand.position);
-            controller.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1f);
-            controller.SetIKPosition(AvatarIKGoal.LeftHand, leftHand.position);
+            throwInHand.action.started -= ThrowWeaponAction;
         }
     }
 }
