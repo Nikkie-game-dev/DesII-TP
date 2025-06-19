@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,15 @@ namespace Entities.Player
 {
     public class Interaction : MonoBehaviour
     {
+        public enum GunPosition
+        {
+            Hip,
+            Shoulder,
+        }
+        public static event Action<GunPosition> OnGunGrab;
+        public static event Action OnGunDrop;
+        
+        
         [SerializeField] private InputActionReference fire;
         [SerializeField] private InputActionReference grabWeapon;
         [SerializeField] private InputActionReference reload;
@@ -55,7 +65,7 @@ namespace Entities.Player
 
             _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
             SetWeapon(lookAt.collider.gameObject);
-            IkController.OnGunGrab.Invoke();
+            OnGunGrab?.Invoke(GunPosition.Hip);
         }
 
         private void ThrowWeaponAction(InputAction.CallbackContext _)
@@ -112,7 +122,7 @@ namespace Entities.Player
         {
             if (!_weaponGrab || !_weaponScript || !_weaponGrabScript) return;
             
-            IkController.OnGunDrop.Invoke();
+            OnGunDrop?.Invoke();
             
             fire.action.started -= FireAction;
             reload.action.started -= _weaponScript.Reload;

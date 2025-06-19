@@ -9,12 +9,16 @@ namespace Entities.Player
     {
         [SerializeField] private InputActionReference look;
         [SerializeField] private InputActionReference scopeIn;
+        
         [SerializeField] private Transform head;
+        
         [SerializeField] private float sensitivity;
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
+        
         [FormerlySerializedAs("controller")] [SerializeField] private Animator animator;
+        
         [SerializeField] private string animParam;
 
 
