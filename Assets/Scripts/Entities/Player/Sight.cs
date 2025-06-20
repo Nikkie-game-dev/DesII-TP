@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,9 @@ namespace Entities.Player
 {
     public class Sight : MonoBehaviour
     {
+        public static event Action OnScopeIn;
+        public static event Action OnScopeOut;
+        
         [SerializeField] private InputActionReference look;
         [SerializeField] private InputActionReference scopeIn;
         
@@ -47,10 +51,19 @@ namespace Entities.Player
 
         private void ScopeIn(InputAction.CallbackContext _)
         {
-            _scope?.SetActive(!_scope.activeSelf);
-            firstPersonView.SetActive(true);
             _sensitivity = sensitivity;
-            animator?.SetBool(Animator.StringToHash(animParam), _scope != null && _scope.activeSelf);
+            _scope?.SetActive(true);
+            firstPersonView.SetActive(false);
+            animator?.SetBool(Animator.StringToHash(animParam), true);
+            OnScopeIn?.Invoke();
+        }
+        
+        private void ScopeOut(InputAction.CallbackContext _)
+        {
+            _scope?.SetActive(false);
+            firstPersonView.SetActive(true);
+            animator?.SetBool(Animator.StringToHash(animParam), false);
+            OnScopeOut?.Invoke();
         }
 
         private void ReadValue(InputAction.CallbackContext ctx)
@@ -88,7 +101,7 @@ namespace Entities.Player
             _scope = scope;
 
             scopeIn.action.started += ScopeIn;
-            scopeIn.action.canceled -= ScopeIn;
+            scopeIn.action.canceled -= ScopeOut;
         }
 
         private void OnDisable()

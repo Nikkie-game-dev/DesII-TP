@@ -9,12 +9,8 @@ namespace Entities.Player
 {
     public class Interaction : MonoBehaviour
     {
-        public enum GunPosition
-        {
-            Hip,
-            Shoulder,
-        }
-        public static event Action<GunPosition> OnGunGrab;
+        
+        public static event Action OnGunGrab;
         public static event Action OnGunDrop;
         
         
@@ -65,7 +61,7 @@ namespace Entities.Player
 
             _weapon = Instantiate(lookAt.collider.transform.GetChild(0).gameObject);
             SetWeapon(lookAt.collider.gameObject);
-            OnGunGrab?.Invoke(GunPosition.Hip);
+            OnGunGrab?.Invoke();
         }
 
         private void ThrowWeaponAction(InputAction.CallbackContext _)
