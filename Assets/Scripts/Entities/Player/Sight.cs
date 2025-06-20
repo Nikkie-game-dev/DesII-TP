@@ -10,21 +10,21 @@ namespace Entities.Player
     {
         public static event Action OnScopeIn;
         public static event Action OnScopeOut;
-        
+
         [SerializeField] private InputActionReference look;
         [SerializeField] private InputActionReference scopeIn;
-        
+
         [SerializeField] private Transform head;
-        
+
         [SerializeField] private float sensitivity;
         [SerializeField] private float aimSensitivity;
         [SerializeField] private float highLimitAngle;
         [SerializeField] private float lowLimitAngle;
-        
-        [FormerlySerializedAs("controller")] [SerializeField] private Animator animator;
-        
-        [SerializeField] private string animParam;
 
+        [FormerlySerializedAs("controller")] [SerializeField]
+        private Animator animator;
+
+        [SerializeField] private string animParam;
 
 
         [FormerlySerializedAs("FirstPersonView")] [FormerlySerializedAs("main")] [SerializeField]
@@ -45,25 +45,24 @@ namespace Entities.Player
             look.action.started += ReadValue;
             look.action.performed += ReadValue;
             look.action.canceled += ReadValue;
-            
-            
         }
 
         private void ScopeIn(InputAction.CallbackContext _)
         {
             _sensitivity = sensitivity;
-            _scope?.SetActive(true);
-            firstPersonView.SetActive(false);
-            animator?.SetBool(Animator.StringToHash(animParam), true);
-            OnScopeIn?.Invoke();
-        }
-        
-        private void ScopeOut(InputAction.CallbackContext _)
-        {
-            _scope?.SetActive(false);
-            firstPersonView.SetActive(true);
-            animator?.SetBool(Animator.StringToHash(animParam), false);
-            OnScopeOut?.Invoke();
+            _scope?.SetActive(!_scope.activeSelf);
+            firstPersonView.SetActive(!firstPersonView.activeSelf);
+            animator?.SetBool(Animator.StringToHash(animParam),
+                animator != null && animator.GetBool(Animator.StringToHash(animParam)));
+            
+            if (_scope != null && _scope.activeSelf)
+            {
+                OnScopeIn?.Invoke();
+            }
+            else
+            {
+                OnScopeOut?.Invoke();
+            }
         }
 
         private void ReadValue(InputAction.CallbackContext ctx)
@@ -101,7 +100,6 @@ namespace Entities.Player
             _scope = scope;
 
             scopeIn.action.started += ScopeIn;
-            scopeIn.action.canceled -= ScopeOut;
         }
 
         private void OnDisable()
@@ -109,7 +107,6 @@ namespace Entities.Player
             look.action.started -= ReadValue;
             look.action.performed -= ReadValue;
             look.action.canceled -= ReadValue;
-
         }
     }
 }

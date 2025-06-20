@@ -66,6 +66,7 @@ namespace Entities.Player
 
         private void ThrowWeaponAction(InputAction.CallbackContext _)
         {
+            //BUG: you can throw while the aim is on, and the camera will get stuck
             centerFrame.SetActive(true);
             ThrowOldWeapon();
             UI.HudController.OnThrowGun.Invoke();

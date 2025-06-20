@@ -69,7 +69,7 @@ MonoBehaviour:
   searchPlayer: 0
   isStatic: 0
   maxSpeed: 0
-  controller: {fileID: 1639074672893184715}
+  animator: {fileID: 3129873568035191226}
 --- !u!54 &7917865547807979460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -201,9 +201,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
---- !u!95 &1639074672893184715 stripped
+--- !u!95 &3129873568035191226 stripped
 Animator:
-  m_CorrespondingSourceObject: {fileID: 8696146048750593494, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5007519102089975463, guid: b24c2ec2c0f8f8342b27f6016825071f, type: 3}
   m_PrefabInstance: {fileID: 7931335350760337181}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &3585397440444280887 stripped

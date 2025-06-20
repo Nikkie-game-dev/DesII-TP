@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &642551131791537465
+--- !u!1 &207166277224882564
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,29 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4419944037281295474}
+  - component: {fileID: 373647973627273626}
   m_Layer: 0
-  m_Name: IkHandGunAimL
+  m_Name: ik_hand_aim_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4419944037281295474
+--- !u!4 &373647973627273626
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642551131791537465}
+  m_GameObject: {fileID: 207166277224882564}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0073640347, y: 0.3612963, z: 0.3749426, w: 0.85371476}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.12798275, y: -0.016330523, z: -0.38006097, w: 0.91591895}
+  m_LocalPosition: {x: 0.38855314, y: -0.47720718, z: -0.8515075}
+  m_LocalScale: {x: 1.4925368, y: 1.492537, z: 1.492537}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6421163591674547040}
+  m_Father: {fileID: 2496413313798736499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2576096358508228156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2496413313798736499}
+  m_Layer: 0
+  m_Name: GunPlacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2496413313798736499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576096358508228156}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6501181, y: -0.2028855, z: 0.341073, w: 0.6479608}
+  m_LocalPosition: {x: -0.125, y: 0.39, z: 0.118}
+  m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 4961970840189846281}
+  - {fileID: 6811275770699271225}
+  - {fileID: 373647973627273626}
+  - {fileID: 1251882792058687410}
+  m_Father: {fileID: 4102043908021059103}
+  m_LocalEulerAnglesHint: {x: -65.614, y: 41.407, z: 12.597}
 --- !u!1 &2591082817760926564
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6904053976054357802}
   - component: {fileID: 7016515320299438954}
-  - component: {fileID: 8696146048750593494}
+  - component: {fileID: 5007519102089975463}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -352,7 +387,7 @@ MonoBehaviour:
   - {fileID: 3889449005543030674}
   - {fileID: 8347351990956138095}
   - {fileID: 4918078211595093925}
---- !u!95 &8696146048750593494
+--- !u!95 &5007519102089975463
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -374,7 +409,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &3652103569382543485
+--- !u!1 &3137421471992551099
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,60 +417,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 559070485246204813}
+  - component: {fileID: 6811275770699271225}
   m_Layer: 0
-  m_Name: IkHandGunAimR
+  m_Name: ik_hand_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &559070485246204813
+--- !u!4 &6811275770699271225
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3652103569382543485}
+  m_GameObject: {fileID: 3137421471992551099}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0073640347, y: 0.3612963, z: 0.3749426, w: 0.85371476}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.053304657, y: -0.041841988, z: -0.0020861535, w: -0.9976991}
+  m_LocalPosition: {x: -0.11, y: 0.04, z: 0.211}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6421163591674547040}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4118358339179780877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5266709687353107345}
-  m_Layer: 0
-  m_Name: GunHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5266709687353107345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4118358339179780877}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.55292517, y: 0.33286726, z: 0.39396718, w: 0.65441805}
-  m_LocalPosition: {x: 0.192, y: 0.425, z: 0.181}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 181886619560919550}
-  m_LocalEulerAnglesHint: {x: -80.39, y: 0, z: 62.097}
+  m_Father: {fileID: 2496413313798736499}
+  m_LocalEulerAnglesHint: {x: 366.096, y: 4.829, z: 0.497}
+--- !u!1 &5530046450198125066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4961970840189846281}
+  m_Layer: 0
+  m_Name: ik_hand_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4961970840189846281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530046450198125066}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.012323732, y: -0.0024620318, z: 0.029777057, w: 0.99947757}
+  m_LocalPosition: {x: 0.077, y: -0.101, z: -0.209}
+  m_LocalScale: {x: 1.4925374, y: 1.4925374, z: 1.4925374}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2496413313798736499}
+  m_LocalEulerAnglesHint: {x: 1.42, y: -0.24, z: 3.41}
 --- !u!1 &8680154818843063290
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +592,37 @@ CapsuleCollider:
   m_Height: 0.31127334
   m_Direction: 2
   m_Center: {x: 0, y: 1.6913975, z: 0.046489745}
+--- !u!1 &9090175127036433825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251882792058687410}
+  m_Layer: 0
+  m_Name: ik_hand_aim_l
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251882792058687410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090175127036433825}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.12798275, y: -0.016330523, z: -0.38006097, w: 0.91591895}
+  m_LocalPosition: {x: 0.38855314, y: -0.47720718, z: -0.8515075}
+  m_LocalScale: {x: 1.4925368, y: 1.492537, z: 1.492537}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2496413313798736499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1741354324444522962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -565,46 +631,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6904053976054357802}
     m_Modifications:
-    - target: {fileID: -9207274948300293911, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01PalmR
-      objectReference: {fileID: 0}
-    - target: {fileID: -9139328791849127209, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03InR
-      objectReference: {fileID: 0}
-    - target: {fileID: -9127178136139278661, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwist01L
-      objectReference: {fileID: 0}
-    - target: {fileID: -9085260117975906553, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Interaction
-      objectReference: {fileID: 0}
-    - target: {fileID: -9039710383536573116, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01L
-      objectReference: {fileID: 0}
-    - target: {fileID: -8996590150740389936, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8993098819772715708, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: FootL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8850661553334102970, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02InR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8819856551292539889, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8778315087004391019, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmOutR
-      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -661,1387 +687,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8675727916642413657, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01PalmMidL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8598935938255045408, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmFwdL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8461137770271492731, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8446292825037708856, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8374211152183066034, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmInL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8344639875656984798, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01L
-      objectReference: {fileID: 0}
-    - target: {fileID: -8320365392235035240, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8313182453728703005, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8296144855709949995, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IndexMetacarpalSlideR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8283582461199502711, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: PinkyMetacarpalR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8273130074764894289, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01PalmMidR
-      objectReference: {fileID: 0}
-    - target: {fileID: -8174952224165556672, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8162904623567674149, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -8021376453289716856, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7901091754638606350, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7880315110825705838, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine04LatissimusL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7879636920271461141, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7842132418459944679, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmInL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7743514341501259039, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01R
-      objectReference: {fileID: 0}
-    - target: {fileID: -7682134666984450514, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: SKMPatchBack
-      objectReference: {fileID: 0}
-    - target: {fileID: -7605336291859573652, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkFootL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7545128844171000008, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7543009187175877417, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7507252079238023135, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CenterOfMass
-      objectReference: {fileID: 0}
-    - target: {fileID: -7421592663079994140, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7386294658372217176, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwistCor02L
-      objectReference: {fileID: 0}
-    - target: {fileID: -7335551177350593392, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01PalmL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7294216571449694032, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02InR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7293264415291843588, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01PalmMidL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7265171683334089151, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7193568351341896256, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01PalmL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7181505740183851116, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7176108416121494547, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -7132418541894751281, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleScapR
-      objectReference: {fileID: 0}
-    - target: {fileID: -7084795480567621552, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03PipL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6982093109305026485, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6873582072929003579, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01McpL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6814828807139011878, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6796400145420082904, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6735359747562731557, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6693923445764964982, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine03
-      objectReference: {fileID: 0}
-    - target: {fileID: -6667850411999785979, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: PinkyMetacarpalSlideL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6663192970556822242, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01PalmL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6629995823571773627, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02R
-      objectReference: {fileID: 0}
-    - target: {fileID: -6539371496512660451, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02DipR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6475291710595068694, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03L
-      objectReference: {fileID: 0}
-    - target: {fileID: -6457057715550771984, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6381442386271340929, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03L
-      objectReference: {fileID: 0}
-    - target: {fileID: -6378739775003093731, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6316022883061304233, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6218120960370098191, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkHandL
-      objectReference: {fileID: 0}
-    - target: {fileID: -6129159399009855392, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmR
-      objectReference: {fileID: 0}
-    - target: {fileID: -6046606204140875185, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5979705772273854430, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5928387447152868758, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5925425241813190343, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01PalmMidR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5867482372881727029, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighBckR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5734007879649857704, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01PalmL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5699043304822001605, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: PistolLeg
-      objectReference: {fileID: 0}
-    - target: {fileID: -5688439725402259317, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTricepL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5661390892633275571, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02InR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5621163224373767463, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwistCor02R
-      objectReference: {fileID: 0}
-    - target: {fileID: -5520013982966774816, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02DipL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5391488052043087189, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5232507888152063523, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02McpR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5229010350362902296, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmTwist02L
-      objectReference: {fileID: 0}
-    - target: {fileID: -5215179878727028013, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5164385864084285163, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: MiddleMetacarpalSlideR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5156265511980674085, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: RingMetacarpalL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5151492872390713093, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Root
-      objectReference: {fileID: 0}
-    - target: {fileID: -5080228171389590675, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmBckR
-      objectReference: {fileID: 0}
-    - target: {fileID: -5072004052125824272, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02DipL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5071149829559787619, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5028104299029536999, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmBicepL
-      objectReference: {fileID: 0}
-    - target: {fileID: -5000250818828693508, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighCorrectiveRootR
-      objectReference: {fileID: 0}
-    - target: {fileID: -4979682080530584756, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middletoe01R
-      objectReference: {fileID: 0}
-    - target: {fileID: -4780826089428201366, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -4747893990510470404, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: -4734621425026485668, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: BallR
-      objectReference: {fileID: 0}
-    - target: {fileID: -4661568285266285617, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01McpL
-      objectReference: {fileID: 0}
-    - target: {fileID: -4657837305369526654, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleR
-      objectReference: {fileID: 0}
-    - target: {fileID: -4653113594524634961, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Neck01
-      objectReference: {fileID: 0}
-    - target: {fileID: -4400029753800314996, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighCorrectiveRootL
-      objectReference: {fileID: 0}
-    - target: {fileID: -4120964129633214843, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmTwist02R
-      objectReference: {fileID: 0}
-    - target: {fileID: -4112209983627571008, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03InR
-      objectReference: {fileID: 0}
-    - target: {fileID: -4063551042000117819, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -3980014827028854527, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02L
-      objectReference: {fileID: 0}
-    - target: {fileID: -3936364938565277279, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -3876673721002528095, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -3847592044014614528, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02L
-      objectReference: {fileID: 0}
-    - target: {fileID: -3796560878952223179, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmBicepR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3747797290728728324, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine04LatissimusR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3730080606814098470, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmL
-      objectReference: {fileID: 0}
-    - target: {fileID: -3724600438013130016, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: MiddleMetacarpalR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3556782287424176952, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmCorrectiveRootR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3507795037362320911, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3466613664907225958, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmInR
-      objectReference: {fileID: 0}
-    - target: {fileID: -3271546160769163793, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: -3133781037790840741, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmFwdR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2965657814211158629, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2958011223660730603, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03L
-      objectReference: {fileID: 0}
-    - target: {fileID: -2926146985139951523, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwistCor02L
-      objectReference: {fileID: 0}
-    - target: {fileID: -2876700015681017332, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2662737036070859451, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwist01R
-      objectReference: {fileID: 0}
-    - target: {fileID: -2628105702867376821, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03R
-      objectReference: {fileID: 0}
-    - target: {fileID: -2602808564937872642, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2581662707747819612, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02PipL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2563036838469984724, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: MiddleMetacarpalL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2531288048931639225, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2357224488658565533, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwistCor01L
-      objectReference: {fileID: 0}
-    - target: {fileID: -2337036965059366466, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmCorrectiveRootR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2306268725249879310, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01PalmMidR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2301692659318275225, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2273182360611113925, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: AnkleBckL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2266236894886061888, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2232643536353331922, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmTwist01R
-      objectReference: {fileID: 0}
-    - target: {fileID: -2204925099933703580, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmCorrectiveRootL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2200561779909496747, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01McpR
-      objectReference: {fileID: 0}
-    - target: {fileID: -2166222713350500362, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -2104618609785485444, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: SKMPatchFlagCap
-      objectReference: {fileID: 0}
-    - target: {fileID: -1901864647407024825, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1898033839861719913, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1864132170712310867, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02PipR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1752415085017933849, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine02
-      objectReference: {fileID: 0}
-    - target: {fileID: -1671728854875497787, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1669360472342434129, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleScapL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1633816361239611976, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01PalmMidR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1532501603885034301, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1529904903612284563, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClaviclePecL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1496244169371688443, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: RingMetacarpalR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1463187373336559466, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClavicleOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1330126071053267381, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmBckL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1270760710386143774, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01PalmR
-      objectReference: {fileID: 0}
-    - target: {fileID: -1210749941252220906, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkHandGun
-      objectReference: {fileID: 0}
-    - target: {fileID: -1126745616735726488, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfKneeBackL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1020363521164709247, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -1010821458271607467, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: -989639482521784797, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03L
-      objectReference: {fileID: 0}
-    - target: {fileID: -951615310586262461, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01R
-      objectReference: {fileID: 0}
-    - target: {fileID: -933671973876485084, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: -791551812709371472, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03InL
-      objectReference: {fileID: 0}
-    - target: {fileID: -710306098357142818, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -630952934331206678, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwist01L
-      objectReference: {fileID: 0}
-    - target: {fileID: -621520791264353698, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03R
-      objectReference: {fileID: 0}
-    - target: {fileID: -612858813560786038, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Bigtoe02R
-      objectReference: {fileID: 0}
-    - target: {fileID: -547619444925602151, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -470086864041160331, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -440177376674310387, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: -376111944512625670, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IndexMetacarpalR
-      objectReference: {fileID: 0}
-    - target: {fileID: -259783760857725253, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: -215091077353986016, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: -213463285739357477, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01McpR
-      objectReference: {fileID: 0}
-    - target: {fileID: -204170086622631533, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: -128523483608429317, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: JeansTactic
-      objectReference: {fileID: 0}
-    - target: {fileID: -3561337624018333, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02InL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6897516567567175, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 139897622800856998, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 165070189736493626, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 356164749081095999, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 357505020469631156, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03L
-      objectReference: {fileID: 0}
-    - target: {fileID: 418940866910887671, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: RingMetacarpalSlideL
-      objectReference: {fileID: 0}
-    - target: {fileID: 431452254999137836, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 435513337997451840, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmBckL
-      objectReference: {fileID: 0}
-    - target: {fileID: 451809770695059392, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: HandL
-      objectReference: {fileID: 0}
-    - target: {fileID: 501344882941073212, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 556689435199520989, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03InR
-      objectReference: {fileID: 0}
-    - target: {fileID: 591406084160426199, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 807589831966351536, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighBckL
-      objectReference: {fileID: 0}
-    - target: {fileID: 828634836082846691, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmInR
-      objectReference: {fileID: 0}
-    - target: {fileID: 901436074577923934, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Indextoe01R
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
       propertyPath: m_Name
-      value: SKMCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 919974555944827520, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097173791789820992, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: AnkleFwdR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125761772371240563, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwistCor01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 1193340829816115258, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257330943237861888, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: AnkleFwdL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1400547257292812176, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: PinkyMetacarpalL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1437885671033588453, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 1487626644414412449, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfKneeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1528898191054688703, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1534913987382916014, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03InL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1535234366023964051, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587359566185573665, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03R
-      objectReference: {fileID: 0}
-    - target: {fileID: 1644904272003725595, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1715855810559729693, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1742893002697408935, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01PalmR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1748106532934682788, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1758878569785214541, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighInR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1781078629098999389, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkHandR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1808828930725828557, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Drops1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852786793408112016, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879048273540982738, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985840850367829595, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2092920001284074382, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 2095339125766378720, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: PinkyMetacarpalSlideR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2099435948344942499, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2153249764316501897, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03PipR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2167761346317380011, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2207750151455435426, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmCorrectiveRootL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264177305372819721, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ClaviclePecR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2304696537980172076, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02PipL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2477671084997821538, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2482526491898625428, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570785321655242282, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2583187036889903975, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: MTalNrwBodyPreview
-      objectReference: {fileID: 0}
-    - target: {fileID: 2593361835815410812, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654930823043398571, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01McpL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2663851250209546583, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwist01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672366060773128075, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01McpR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2692077537785694528, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2763421428862523668, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 2764976967275568845, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwist02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773479377728189809, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Littletoe02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 2773658664388014879, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811770378650343851, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932963603155038454, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwistCor02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 2936795533476834412, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 2978140624907183474, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3039218317262215549, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: QuantumArms
-      objectReference: {fileID: 0}
-    - target: {fileID: 3134636353226949732, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3159672509410331242, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3173561547485256402, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01McpR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3177392410262503921, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3216742351175061684, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3240628041333431953, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256684802130647663, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pelvis
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275583732096121946, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3286257424633465594, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01PalmMidL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404108455369731318, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfCorrectiveRootL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3458617767690807809, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmTwist01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547084544503474180, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwist02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551917707736033841, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwist02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576267923306093122, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3588300151840857749, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwistCor01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610044287285432704, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632094228039906114, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3687769257053742056, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwist02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 3718841551741009334, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02DipL
-      objectReference: {fileID: 0}
-    - target: {fileID: 3732150430621318914, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3841022852617417941, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 3875010618097771616, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02InR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4150807801108188204, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 4228594319742935871, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02PipR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233267774880236520, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: HandR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4391441225078501881, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03HalfL
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473849054309220002, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504213089586069628, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4517603192575079941, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03InL
-      objectReference: {fileID: 0}
-    - target: {fileID: 4528591782600754235, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwist02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 4555343648564993724, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 4584174118129776022, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01PalmMidL
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663826817700112633, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb03SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4671830434102639556, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4753843768098615293, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ringtoe01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788696398171245411, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighBckLwrR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4891708304486793311, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 4894690297146080367, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkFootR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046441301349235295, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmFwdL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5054846087886607576, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: FootR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5081284647653247379, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfKneeBackR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5086032145791547820, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring03R
-      objectReference: {fileID: 0}
-    - target: {fileID: 5089424949164651622, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: WristOuterR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5163697831205384224, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighFwdR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5216162525973670123, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02McpL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5217009867215908618, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle01SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5242459039247472604, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5283229191215660509, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: WristInnerL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5323183862578393793, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTricepR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5368884223218575098, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: LowerarmFwdR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5389276645288063144, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: BallL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5438341895926684327, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452797605902342947, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: MiddleMetacarpalSlideL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468235312771934674, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5500886687783586078, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighFwdLwrL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5506578445555576723, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwistCor02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 5526179631889463293, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighBckLwrL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5589902780053657674, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5656750033415230263, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighFwdL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680814620840038842, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Neck02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700567581940466678, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729693402732932294, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742138916034748133, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmTwistCor01R
+      value: SKM_Character
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2b533287cad080a4eb674658730160bc, type: 2}
-    - target: {fileID: 5911227395807506618, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02DipR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5953187569738710532, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky01BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 5976290121734255218, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6047085342645537256, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfCorrectiveRootR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6074053616688418956, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6165292737934637517, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02InR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6265582504658015800, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 6323213471188922276, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: WristInnerR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6327248339914241107, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03BulgeR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6484669710591635833, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 6487207563582306754, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ringtoe02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 6531802256908683962, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6567861106546623034, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01PalmR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6809616279960599735, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02PipR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6890373821263855220, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring01SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895754035804510728, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwist01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 6923244316196005778, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb01SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 6943013838223236650, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IndexMetacarpalL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952284296342706819, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01McpL
-      objectReference: {fileID: 0}
-    - target: {fileID: 6980967903288769555, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwistCor02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 7079284655078127669, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Littletoe01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 7180214338885128006, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: TeethUP
-      objectReference: {fileID: 0}
-    - target: {fileID: 7196912058240132522, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: HolsterHard
-      objectReference: {fileID: 0}
-    - target: {fileID: 7242152361089127277, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Spine04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7333648365632981465, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Bigtoe01R
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459493545635537109, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: RingMetacarpalSlideR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7516417274515924121, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: TeethDown
-      objectReference: {fileID: 0}
-    - target: {fileID: 7538664771970531043, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index03InR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7726420360973115472, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Indextoe02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 7730329766936670458, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Ring02DipR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7732575125686577361, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky03HalfR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7825479855666946308, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02SideInnR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7889098353884843695, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: AnkleBckR
-      objectReference: {fileID: 0}
-    - target: {fileID: 7949435879717635275, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IndexMetacarpalSlideL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8010476338477658823, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017200053728718777, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfTwist01L
-      objectReference: {fileID: 0}
-    - target: {fileID: 8084891991388302856, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle02PipL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8135720562107354573, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighFwdLwrR
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146971006114513562, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkFootRoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8148762392066407730, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8179282016439474230, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighTwist02L
-      objectReference: {fileID: 0}
-    - target: {fileID: 8219158519350862329, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ShirtRolledUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8267933492033183861, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: IkHandRoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8322442997301967777, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02BulgeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8330563440236598516, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02DipL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8354793925357334412, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index01SideInnL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8373144610499611301, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: WristOuterL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478996627911348669, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Thumb02SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8532187404933623505, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Head
-      objectReference: {fileID: 0}
-    - target: {fileID: 8590651409646145428, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02SideOutR
-      objectReference: {fileID: 0}
-    - target: {fileID: 8643511661147019077, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02PipL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8735027620128412102, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Pinky02SideOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8750778338058888495, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middle03R
-      objectReference: {fileID: 0}
-    - target: {fileID: 8869877505027265052, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmOutL
-      objectReference: {fileID: 0}
-    - target: {fileID: 8897367323294281565, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Middletoe02R
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924008128086904623, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: UpperarmBckR
-      objectReference: {fileID: 0}
-    - target: {fileID: 9001513203377937970, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: ThighInL
-      objectReference: {fileID: 0}
-    - target: {fileID: 9184859855244619437, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: CalfKneeL
-      objectReference: {fileID: 0}
-    - target: {fileID: 9207144462644822740, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      propertyPath: m_Name
-      value: Index02PipR
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4698950735507088050, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 559070485246204813}
-    - targetCorrespondingSourceObject: {fileID: 4698950735507088050, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4419944037281295474}
-    - targetCorrespondingSourceObject: {fileID: -7301258162600384468, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5266709687353107345}
+    - targetCorrespondingSourceObject: {fileID: 2362115719417386957, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2496413313798736499}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
 --- !u!4 &62801601474823113 stripped
@@ -2982,11 +1642,6 @@ Transform:
 --- !u!4 &6418699471285838828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4699864245563673150, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
-  m_PrefabInstance: {fileID: 1741354324444522962}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6421163591674547040 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4698950735507088050, guid: ed110cfc4368bd944a172d2d70eb8b64, type: 3}
   m_PrefabInstance: {fileID: 1741354324444522962}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6456025347784539799 stripped
